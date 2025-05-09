@@ -1,0 +1,21 @@
+.coverTitle {
+  text-align: left;
+  margin-bottom: 32px;
+}
+.title {
+  font-family: 'Ubuntu Sans', sans-serif;
+  font-size: 130px;
+  font-weight: 500;
+  color: #00f0b1;
+  text-shadow: 0 0 20px #06A77D;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+.subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffc76e;
+  margin: 3%;
+  line-height: 1.3;
+}
