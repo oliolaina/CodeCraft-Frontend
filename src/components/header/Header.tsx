@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Header.module.css';
 import logo from '../../assets/images/logo.svg';
-import "../../assets/fonts/fonts.css";
+import '../../assets/fonts/fonts.css';
 
 export interface NavLink {
   label: string;
@@ -20,7 +20,10 @@ export const Header: React.FC<HeaderProps> = ({
   logoText = 'CodeCraft'
 }) => (
   <header className={styles.header}>
-    <div className={styles.logo}><img src={logo} className={styles.logo} alt="logo" />{logoText}</div>
+    <div className={styles.logo}>
+      <img src={logo} className={styles.logo} alt='logo' />
+      {logoText}
+    </div>
     <nav className={styles.nav}>
       {links.map((link) => (
         <a key={link.to} href={link.to} className={styles.link}>
@@ -29,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
       ))}
     </nav>
     <a href={profileLink.to} className={styles.profile}>
-        {profileLink.label}
-      </a>
+      {profileLink.label}
+    </a>
   </header>
 );

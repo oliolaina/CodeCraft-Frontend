@@ -3,8 +3,8 @@ import { CoverBackground } from './CoverBackground';
 import { CoverTitle } from './CoverTitle';
 import { CoverIcons } from './CoverIcons';
 import { Button } from '../button';
-import python_logo from "../../assets/images/python_logo.png"
-import cpp_logo from "../../assets/images/cpp_logo.png"
+import python_logo from '../../assets/images/python_logo.png';
+import cpp_logo from '../../assets/images/cpp_logo.png';
 
 interface CoverProps {
   onStart: () => void;
@@ -23,8 +23,16 @@ export const Cover: React.FC<CoverProps> = ({
     <CoverTitle title='CodeCraft' subtitle='Код - это искусство' />
     <CoverIcons
       icons={[
-        { icon: <img src = {python_logo}/>, label: 'Python', onClick: onPythonClick },
-        { icon: <img src = {cpp_logo}/>, label: 'C++', onClick: onCppClick }
+        {
+          icon: <img src={python_logo} alt='python' />,
+          label: 'Python',
+          onClick: onPythonClick
+        },
+        {
+          icon: <img src={cpp_logo} alt='c++' />,
+          label: 'C++',
+          onClick: onCppClick
+        }
       ]}
     />
     <Button label='Начать изучение' onClick={onStart} />

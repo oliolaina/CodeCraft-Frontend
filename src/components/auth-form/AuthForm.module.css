@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin: 50px auto;
   background: #033c55;
   border-radius: 36px;
   padding: 40px 32px;
-  box-shadow: 0 4px 24px rgba(0, 240, 177, 0.10);
+  box-shadow: 0 4px 24px rgba(0, 240, 177, 0.1);
   min-width: 320px;
   max-width: 400px;
 }
@@ -38,7 +39,8 @@
   gap: 16px;
   margin-top: 16px;
 }
-.register, .login {
+.register,
+.login {
   font-family: 'Comfortaa', sans-serif;
   font-size: 17px;
   font-weight: 700;
@@ -46,7 +48,9 @@
   border-radius: 18px;
   padding: 12px 24px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 .register {
   background: linear-gradient(90deg, #fd9e02 25%, #00f0b1 100%);
@@ -70,4 +74,4 @@
     min-width: 0;
     max-width: 100%;
   }
-} 
+}

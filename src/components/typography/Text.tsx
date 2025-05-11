@@ -12,16 +12,14 @@ export const Text: React.FC<TextProps> = ({
   size = 18,
   color,
   style
-}) => {
-  return (
-    <span
-      style={{
-        fontSize: typeof size === 'number' ? `${size}px` : size,
-        color,
-        ...style
-      }}
-    >
-      {children}
-    </span>
-  );
-};
+}) => (
+  <span
+    style={{
+      fontSize: typeof size === 'number' ? `${size}px` : size,
+      color,
+      ...style
+    }}
+  >
+    {children}
+  </span>
+);

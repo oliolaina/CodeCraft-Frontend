@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Heading, Text} from "../../components/typography";
+import { Heading, Text } from '../../components/typography';
 import styles from './AuthForm.module.css';
 
 interface AuthFormProps {
@@ -13,8 +13,17 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onRegister, onLogin }) => {
 
   return (
     <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-      <Text color = "#FD9E02" size = {30} style = {{fontFamily: 'monospace', textShadow: '0 0 20px #06A77D', margin: '0 auto'}}>
-            Авторизация</Text>
+      <Text
+        color='#FD9E02'
+        size={30}
+        style={{
+          fontFamily: 'monospace',
+          textShadow: '0 0 20px #06A77D',
+          margin: '0 auto'
+        }}
+      >
+        Авторизация
+      </Text>
       <label className={styles.label}>
         Логин
         <input

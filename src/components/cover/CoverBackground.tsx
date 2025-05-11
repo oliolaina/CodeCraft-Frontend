@@ -14,7 +14,7 @@ export const CoverBackground: React.FC<CoverBackgroundProps> = ({
     className={styles.background}
     //style={{ backgroundImage: `url(${imageUrl})` }}
   >
-    <img src = {imageUrl} className = {styles.image} />
+    <img src={imageUrl} className={styles.image} />
     {children}
   </div>
 );

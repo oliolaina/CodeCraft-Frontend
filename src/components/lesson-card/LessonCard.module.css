@@ -2,20 +2,30 @@
   display: flex;
   align-items: center;
   border-radius: 52px;
-  background: linear-gradient(135deg, #52d7ffe5 0%, #2b6dbd 100%);
+  width: 90%;
+  background: linear-gradient(135deg, #2a7186e5 0%, #0f335f 100%);
   box-shadow: 0 4px 24px rgba(0, 240, 177, 0.1);
   padding: 32px 48px;
   text-decoration: none;
   min-width: 400px;
   min-height: 187px;
-  margin: 0 0 24px 0;
+  margin: 0 auto 0;
   transition:
     box-shadow 0.2s,
     transform 0.2s;
 }
+.card_easy {
+  background: linear-gradient(to left, #0f335f 50%, #07a264e5);
+}
+.card_medium {
+  background: linear-gradient(to left, #0f335f 45%, #c1b24d);
+}
+.card_hard {
+  background: linear-gradient(to left, #0f335f 45%, #8f263be5);
+}
 .card:hover {
   box-shadow: 0 8px 32px rgba(0, 240, 177, 0.18);
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.01);
 }
 .icon {
   width: 106px;
@@ -34,7 +44,7 @@
   font-family: 'Comfortaa', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  color: #fd9e02;
+  color: #BBFFED;
   margin-bottom: 8px;
 }
 .level {
