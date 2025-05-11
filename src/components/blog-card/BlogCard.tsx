@@ -14,7 +14,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   image,
   to
 }) => (
-  <a className={styles.card} href={to}>
+  <a className={styles.card} href={to} target="_blank">
     <div
       className={styles.image}
       style={{ backgroundImage: `url(${image})` }}

@@ -2,24 +2,22 @@
   display: flex;
   align-items: stretch;
   border-radius: 52px;
-  background: #033c55;
-  box-shadow: 0 4px 24px rgba(0, 240, 177, 0.1);
+  background: #073959;
   text-decoration: none;
   overflow: hidden;
-  min-width: 350px;
-  min-height: 200px;
-  margin: 0 0 24px 0;
+  width: 90%;
+  max-height: 30%;
+  margin: 0 auto 24px;
   transition:
     box-shadow 0.2s,
     transform 0.2s;
 }
 .card:hover {
-  box-shadow: 0 8px 32px rgba(0, 240, 177, 0.18);
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-4px) scale(1.01);
 }
 .image {
   width: 200px;
-  min-width: 120px;
+  width: 20%;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -35,14 +33,14 @@
 }
 .title {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   color: #00f0b1;
   margin-bottom: 12px;
 }
 .description {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   color: #dafff5;
 }
 @media (max-width: 700px) {

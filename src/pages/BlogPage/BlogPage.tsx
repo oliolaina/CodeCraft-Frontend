@@ -1,50 +1,64 @@
 import styles from '../page.module.css';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { BlogCard } from '../../components/blog-card';
-import { ProgressBar } from '../../components/progress-bar';
-import { Tabs } from '../../components/tabs';
+import { Heading, Text } from '../../components/typography';
+
+interface Blog {
+  id: number;
+  title: string;
+  image: string;
+  content: string;
+  link: string;
+}
 
 const BlogPage: React.FC = () => {
   const [tab, setTab] = useState('python');
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    import('../../data/blogs.json').then(data => {
+      setBlogs(data.blogs);
+    });
+  }, []);
 
   return (
     <div className={styles.page}>
       <Header
         links={[
-          { label: 'О проекте', to: '#' },
-          { label: 'Блог', to: '#' },
-          { label: 'Каталог', to: '#' }
+          { label: 'О проекте', to: '/' },
+          { label: 'Блог', to: '/blog' },
+          { label: 'Каталог', to: '/catalog' }
         ]}
-        profileLink={{ label: 'Профиль', to: '#' }}
+        profileLink={{ label: 'Профиль', to: '/profile' }}
       />
-      <h1 style={{ color: '#00f0b1', margin: '32px 0 16px 0' }}>Блог</h1>
-      <Tabs
-        items={[
-          { icon: <span>🐍</span>, label: 'Python', value: 'python' },
-          { icon: <span>💻</span>, label: 'C++', value: 'cpp' }
-        ]}
-        value={tab}
-        onChange={setTab}
+      <Heading style={{ color: '#00f0b1', margin: '32px 0 32px 5%', fontSize: '36px', fontFamily: 'monospace' }}>
+        Блог
+      </Heading>
+      <Text
+        style={{
+          fontFamily: 'Comfortaa',
+          color: '#BBFAE9',
+          margin: '40px 0 40px 5%',
+          lineHeight: '1.5'
+        }}
       >
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+        Здесь Вы можете узнать последние новости из мира IT и почитать статьи о программировании.
+      </Text>
+      
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, margin: '5% 0'}}>
+        {blogs.map(blog => (
           <BlogCard
-            title='8 способов нахождения НОД'
-            description='Эта статья появилась на свет совершенно неожиданно...'
-            image='https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80'
-            to='#'
+            key={blog.id}
+            title={blog.title}
+            description={blog.content}
+            image={blog.image}
+            to={blog.link}
           />
-          <BlogCard
-            title='5 классных вещей, которые вы можете освоить с Python'
-            description='Python — универсальный язык программирования...'
-            image='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80'
-            to='#'
-          />
-        </div>
-      </Tabs>
-      <ProgressBar icon={<span>🐍</span>} title='Python' percent={50} />
+        ))}
+      </div>
+      
       <Footer />
     </div>
   );

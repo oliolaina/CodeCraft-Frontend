@@ -14,11 +14,11 @@ const LessonPage: React.FC = () => {
     <div className={styles.page}>
       <Header
         links={[
-          { label: 'О проекте', to: '#' },
-          { label: 'Блог', to: '#' },
-          { label: 'Каталог', to: '#' }
+          { label: 'О проекте', to: '/' },
+          { label: 'Блог', to: '/blog' },
+          { label: 'Каталог', to: '/catalog' }
         ]}
-        profileLink={{ label: 'Профиль', to: '#' }}
+        profileLink={{ label: 'Профиль', to: '/profile' }}
       />
       <h1 style={{ color: '#00f0b1', margin: '32px 0 16px 0' }}>
         Урок: Переменные и типы данных
