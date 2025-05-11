@@ -35,12 +35,12 @@
   color: #00f0b1;
   box-shadow: none;
 }
-.tabBtn:hover {
-  color: #fd9e02;
-}
+
 .active {
   transform: scale(1.25);
-  color: #fd9e02;
+}
+.tabBtn:hover {
+  transform: scale(1.25);
 }
 .tabContent {
   margin-top: 32px;

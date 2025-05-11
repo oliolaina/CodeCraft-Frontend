@@ -1,11 +1,17 @@
 import React from 'react';
 import styles from './LessonCard.module.css';
+import cpp_easy from '../../assets/images/topic_cards/cpp_easy.svg';
+import cpp_medium from '../../assets/images/topic_cards/cpp_medium.svg';
+import cpp_hard from '../../assets/images/topic_cards/cpp_hard.svg';
+import python_easy from '../../assets/images/topic_cards/python_easy.svg';
+import python_medium from '../../assets/images/topic_cards/python_medium.svg';
+import python_hard from '../../assets/images/topic_cards/python_hard.svg';
 
 interface LessonCardProps {
   title: string;
   level: 'easy' | 'medium' | 'hard';
+  language?: string;
   description: string;
-  icon: React.ReactNode;
   background?: string;
   to: string;
 }
@@ -13,8 +19,8 @@ interface LessonCardProps {
 export const LessonCard: React.FC<LessonCardProps> = ({
   title,
   level,
+  language,
   description,
-  icon,
   background,
   to
 }) => {
@@ -32,6 +38,19 @@ export const LessonCard: React.FC<LessonCardProps> = ({
     }
   };
 
+  const getImage = () => {
+    switch (level) {
+      case 'easy':
+        return language === 'python' ? python_easy : cpp_easy;
+      case 'medium':
+        return language === 'python' ? python_medium : cpp_medium;
+      case 'hard':
+        return language === 'python' ? python_hard : cpp_hard;
+      default:
+        return '';
+    }
+  };
+
   // Комбинируем базовый класс card с классом уровня
   const cardClasses = `${styles.card} ${getLevelClass()}`;
 
@@ -41,7 +60,9 @@ export const LessonCard: React.FC<LessonCardProps> = ({
       href={to}
       style={background ? { background } : {}}
     >
-      <div className={styles.icon}>{icon}</div>
+      <div className={styles.icon}>
+        <img src={getImage()} alt='icon' />
+      </div>
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         <div className={`${styles.level} ${styles[`level_${level}`]}`}>
