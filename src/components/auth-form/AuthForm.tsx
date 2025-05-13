@@ -3,11 +3,16 @@ import { Heading, Text } from '../../components/typography';
 import styles from './AuthForm.module.css';
 
 interface AuthFormProps {
-  onRegister: (login: string, password: string) => void;
   onLogin: (login: string, password: string) => void;
+  onRegister: (login: string, password: string) => void;
+  error?: string | null;
 }
 
-export const AuthForm: React.FC<AuthFormProps> = ({ onRegister, onLogin }) => {
+export const AuthForm: React.FC<AuthFormProps> = ({
+  onLogin,
+  onRegister,
+  error
+}) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,6 +29,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({ onRegister, onLogin }) => {
       >
         Авторизация
       </Text>
+      {error && <div className={styles.error}>{error}</div>}
       <label className={styles.label}>
         Логин
         <input

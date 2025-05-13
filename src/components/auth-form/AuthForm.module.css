@@ -68,6 +68,12 @@
   background: #00f0b1;
   color: #013047;
 }
+.error {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  padding: 7px 16px;
+  color: #fff;
+}
 @media (max-width: 600px) {
   .form {
     padding: 24px 8px;

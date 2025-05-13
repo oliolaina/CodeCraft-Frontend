@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Cover } from '../../components/cover';
@@ -9,6 +9,8 @@ import { Tabs } from '../../components/tabs';
 import { CodeBlock } from '../../components/code-block';
 import { CodeEditor } from '../../components/code-editor';
 import { AuthForm } from '../../components/auth-form';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/UserContext';
 import { Heading, Text } from '../../components/typography';
 import styles from '../page.module.css';
 import cover from '../../assets/images/cover_main.png';
@@ -19,6 +21,33 @@ import pic3 from '../../assets/images/mainPagePics/pic3.svg';
 const HomePage: React.FC = () => {
   const [tab, setTab] = useState('python');
   const [code, setCode] = useState('print("Hello, world!")');
+  const { login, register, currentUser } = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
+
+  const handleLogin = async (loginValue: string, password: string) => {
+    const result = login(loginValue, password);
+    if (result.success) {
+      navigate('/profile');
+    } else {
+      setError(result.error || 'Ошибка входа');
+    }
+  };
+
+  const handleRegister = async (loginValue: string, password: string) => {
+    const result = register(loginValue, password);
+    if (result.success) {
+      // После регистрации автоматически входим
+      const loginResult = login(loginValue, password);
+      if (!loginResult.success) {
+        navigate('/catalog');
+      } else {
+        setError(loginResult.error || 'Вы успешно зарегистрировались! Зайдите повторно под Вашим именем');
+      }
+    } else {
+      setError(result.error || 'Ошибка регистрации');
+    }
+  };
 
   return (
     <div className={styles.page}>
@@ -103,7 +132,11 @@ const HomePage: React.FC = () => {
       >
         Начни учиться прямо сейчас!
       </Heading>
-      <AuthForm onRegister={() => {}} onLogin={() => {}} />
+      <AuthForm
+        onLogin={handleLogin}
+        onRegister={handleRegister}
+        error={error}
+      />
       <Footer />
     </div>
   );
