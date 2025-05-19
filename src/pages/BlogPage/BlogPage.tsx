@@ -33,42 +33,43 @@ const BlogPage: React.FC = () => {
         ]}
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
-      <Heading
-        style={{
-          color: '#00f0b1',
-          margin: '32px 0 32px 5%',
-          fontSize: '36px',
-          fontFamily: 'monospace'
-        }}
-      >
-        Блог
-      </Heading>
-      <Text
-        style={{
-          fontFamily: 'Comfortaa',
-          color: '#BBFAE9',
-          margin: '40px 0 40px 5%',
-          lineHeight: '1.5'
-        }}
-      >
-        Здесь Вы можете узнать последние новости из мира IT и почитать статьи о
-        программировании.
-      </Text>
+      <main className={styles.main}>
+        <Heading
+          style={{
+            color: '#00f0b1',
+            margin: '32px 0 32px 5%',
+            fontSize: '36px',
+            fontFamily: 'monospace'
+          }}
+        >
+          Блог
+        </Heading>
+        <Text
+          style={{
+            fontFamily: 'Comfortaa',
+            color: '#BBFAE9',
+            margin: '40px 0 40px 5%',
+            lineHeight: '1.5'
+          }}
+        >
+          Здесь Вы можете узнать последние новости из мира IT и почитать статьи
+          о программировании.
+        </Text>
 
-      <div
-        style={{ display: 'flex', flexWrap: 'wrap', gap: 24, margin: '5% 0' }}
-      >
-        {blogs.map((blog) => (
-          <BlogCard
-            key={blog.id}
-            title={blog.title}
-            description={blog.content}
-            image={blog.image}
-            to={blog.link}
-          />
-        ))}
-      </div>
-
+        <div
+          style={{ display: 'flex', flexWrap: 'wrap', gap: 24, margin: '5% 0' }}
+        >
+          {blogs.map((blog) => (
+            <BlogCard
+              key={blog.id}
+              title={blog.title}
+              description={blog.content}
+              image={blog.image}
+              to={blog.link}
+            />
+          ))}
+        </div>
+      </main>
       <Footer />
     </div>
   );

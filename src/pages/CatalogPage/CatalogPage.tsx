@@ -50,79 +50,80 @@ const CatalogPage: React.FC = () => {
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
 
-      <Heading
-        size={1}
-        color='#00F0B1'
-        style={{
-          fontFamily: 'Comfortaa',
-          textShadow: '0 0 20px #FFC76E',
-          color: '#FD9E02',
-          textAlign: 'center'
-        }}
-      >
-        Выбери язык программирования
-      </Heading>
-
-      <Tabs
-        items={[
-          {
-            icon: <img src={python_logo} alt='python' />,
-            label: 'Python',
-            value: 'python'
-          },
-          {
-            icon: <img src={cpp_logo} alt='c++' />,
-            label: 'C++',
-            value: 'cpp'
-          }
-        ]}
-        value={tab}
-        onChange={setTab}
-      >
-        <div
+      <main className={styles.main}>
+        <Heading
+          size={1}
+          color='#FD9E02'
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 24,
-            width: '85%',
-            margin: '20px auto'
+            fontFamily: 'Comfortaa',
+            textShadow: '0 0 20px #FFC76E',
+            color: '#FD9E02',
+            textAlign: 'center'
           }}
         >
-          <Text
-            style={{
-              fontFamily: 'Comfortaa',
-              color: '#BBFAE9',
-              margin: '20px 0 20px 0',
-              lineHeight: '1.5'
-            }}
-          >
-            {getDescription()}
-          </Text>
-          <Heading
-            size={1}
-            color='#00F0B1'
-            style={{
-              fontFamily: 'Comfortaa',
-              textShadow: '0 0 20px #06A77D',
-              color: '#00F0B1',
-              margin: '20px 0 20px -3%'
-            }}
-          >
-            Программа обучения:
-          </Heading>
-          {currentCourse?.topics.map((topic) => (
-            <LessonCard
-              key={topic.id}
-              title={topic.title}
-              level={mapDifficultyToLevel(topic.difficulty)}
-              language={tab}
-              description={topic.description}
-              to={`/learn/${currentCourse.id}/${topic.id}`}
-            />
-          ))}
-        </div>
-      </Tabs>
+          Выбери язык программирования
+        </Heading>
 
+        <Tabs
+          items={[
+            {
+              icon: <img src={python_logo} alt='python' />,
+              label: 'Python',
+              value: 'python'
+            },
+            {
+              icon: <img src={cpp_logo} alt='c++' />,
+              label: 'C++',
+              value: 'cpp'
+            }
+          ]}
+          value={tab}
+          onChange={setTab}
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 24,
+              width: '85%',
+              margin: '20px auto'
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: 'Comfortaa',
+                color: '#BBFAE9',
+                margin: '20px 0 20px 0',
+                lineHeight: '1.5'
+              }}
+            >
+              {getDescription()}
+            </Text>
+            <Heading
+              size={1}
+              color='#00F0B1'
+              style={{
+                fontFamily: 'Comfortaa',
+                textShadow: '0 0 20px #06A77D',
+                color: '#00F0B1',
+                margin: '20px 0 20px -3%'
+              }}
+            >
+              Программа обучения:
+            </Heading>
+            {currentCourse?.topics.map((topic) => (
+              <LessonCard
+                key={topic.id}
+                title={topic.title}
+                level={mapDifficultyToLevel(topic.difficulty)}
+                language={tab}
+                description={topic.description}
+                to={`/lesson/${topic.id}`}
+              />
+            ))}
+          </div>
+        </Tabs>
+      </main>
       <Footer />
     </div>
   );

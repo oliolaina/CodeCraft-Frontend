@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   gap: 32px;
-  margin-bottom: 32px;
+  margin: 32px 0;
+  width: 40%;
 }
 .icon {
   width: 86px;

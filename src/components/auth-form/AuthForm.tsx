@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heading, Text } from '../../components/typography';
+import { Button } from '../../components/button';
 import styles from './AuthForm.module.css';
 
 interface AuthFormProps {
@@ -51,13 +52,11 @@ export const AuthForm: React.FC<AuthFormProps> = ({
         />
       </label>
       <div className={styles.buttons}>
-        <button
-          type='button'
-          className={styles.register}
+        <Button
           onClick={() => onRegister(login, password)}
-        >
-          Зарегистрироваться
-        </button>
+          label='Зарегистрироваться'
+          sizeType='little'
+        />
         <button
           type='button'
           className={styles.login}

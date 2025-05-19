@@ -42,7 +42,10 @@ const HomePage: React.FC = () => {
       if (!loginResult.success) {
         navigate('/catalog');
       } else {
-        setError(loginResult.error || 'Вы успешно зарегистрировались! Зайдите повторно под Вашим именем');
+        setError(
+          loginResult.error ||
+            'Вы успешно зарегистрировались! Зайдите повторно под Вашим именем'
+        );
       }
     } else {
       setError(result.error || 'Ошибка регистрации');
@@ -65,78 +68,80 @@ const HomePage: React.FC = () => {
         onPythonClick={() => setTab('python')}
         backgroundUrl={cover}
       />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '75%',
-          gap: 24,
-          flexWrap: 'wrap',
-          margin: '40px auto'
-        }}
-      >
+      <main className={styles.main}>
         <div
-          id='first'
           style={{
             display: 'flex',
+            flexDirection: 'column',
+            width: '75%',
             gap: 24,
-            justifyContent: 'space-between',
-            margin: '50px 0'
+            flexWrap: 'wrap',
+            margin: '40px auto'
           }}
         >
-          <FeatureCard
-            title='Практика с первого дня'
-            text='Теория и задачи в одном месте. Теория знакомит с новой темой, а практические задания закрепляют знания.'
-          />
-          <img src={pic1} alt='pic1' />
+          <div
+            id='first'
+            style={{
+              display: 'flex',
+              gap: 24,
+              justifyContent: 'space-between',
+              margin: '50px 0'
+            }}
+          >
+            <FeatureCard
+              title='Практика с первого дня'
+              text='Теория и задачи в одном месте. Теория знакомит с новой темой, а практические задания закрепляют знания.'
+            />
+            <img src={pic1} alt='pic1' />
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              gap: 50,
+              justifyContent: 'space-between',
+              margin: '50px 0'
+            }}
+          >
+            <img src={pic2} alt='pic2' />
+            <FeatureCard
+              title='Для всех уровней'
+              text='Найдите задачи для любого уровня: от новичка до эксперта. Развивайтесь в своем темпе.'
+            />
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              gap: 24,
+              justifyContent: 'space-between',
+              margin: '50px 0'
+            }}
+          >
+            <FeatureCard
+              title='Прогресс всегда под рукой'
+              text='Сохранение результатов и отслеживание вашего прогресса в обучении.'
+            />
+            <img src={pic3} alt='pic3' />
+          </div>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: 50,
-            justifyContent: 'space-between',
-            margin: '50px 0'
-          }}
-        >
-          <img src={pic2} alt='pic2' />
-          <FeatureCard
-            title='Для всех уровней'
-            text='Найдите задачи для любого уровня: от новичка до эксперта. Развивайтесь в своем темпе.'
-          />
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            gap: 24,
-            justifyContent: 'space-between',
-            margin: '50px 0'
-          }}
-        >
-          <FeatureCard
-            title='Прогресс всегда под рукой'
-            text='Сохранение результатов и отслеживание вашего прогресса в обучении.'
-          />
-          <img src={pic3} alt='pic3' />
-        </div>
-      </div>
 
-      <Heading
-        size={1}
-        color='#00F0B1'
-        style={{
-          fontFamily: 'Comfortaa',
-          textShadow: '0 0 20px #06A77D',
-          color: '#00F0B1',
-          textAlign: 'center'
-        }}
-      >
-        Начни учиться прямо сейчас!
-      </Heading>
-      <AuthForm
-        onLogin={handleLogin}
-        onRegister={handleRegister}
-        error={error}
-      />
+        <Heading
+          size={1}
+          color='#00F0B1'
+          style={{
+            fontFamily: 'Comfortaa',
+            textShadow: '0 0 20px #06A77D',
+            color: '#00F0B1',
+            textAlign: 'center'
+          }}
+        >
+          Начни учиться прямо сейчас!
+        </Heading>
+        <AuthForm
+          onLogin={handleLogin}
+          onRegister={handleRegister}
+          error={error}
+        />
+      </main>
       <Footer />
     </div>
   );

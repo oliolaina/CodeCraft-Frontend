@@ -43,7 +43,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         style={{
           fontFamily: 'IBM Plex Mono, monospace',
           fontSize: 16,
-          background: '#232946',
+          background: '#2F576B',
           color: '#fff',
           borderRadius: 16
         }}

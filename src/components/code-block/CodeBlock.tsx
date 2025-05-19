@@ -21,7 +21,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
     <div className={styles.codeBlock}>
       <div className={styles.language}>{language}</div>
       <pre className={styles.pre}>
-        <code ref={ref} className={`language-${language}`}>
+        <code ref={ref}>
           {code}
         </code>
       </pre>

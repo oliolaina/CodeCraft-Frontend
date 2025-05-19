@@ -1,8 +1,7 @@
 .codeBlock {
-  background: #232946;
+  background: #2F576B;
   border-radius: 24px;
-  box-shadow: 0 2px 12px rgba(0, 240, 177, 0.08);
-  padding: 24px 24px 16px 24px;
+  padding: 12px 12px 12px 12px;
   margin: 24px 0;
   overflow-x: auto;
   position: relative;
@@ -13,8 +12,8 @@
   right: 24px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 16px;
-  color: #00f0b1;
-  background: #0a212b;
+  color: #d1f8ed;
+  background: #2C4A59;
   border-radius: 8px;
   padding: 2px 12px;
   z-index: 2;

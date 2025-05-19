@@ -52,7 +52,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/catalog' element={<CatalogPage />} />
-          <Route path='/lesson' element={<LessonPage />} />
+          <Route path='/lesson/:topicId' element={<LessonPage />} />
           <Route path='/profile' element={<ProfilePage />} />
           <Route path='/blog' element={<BlogPage />} />
           <Route path='/auth' element={<AuthPage />} />

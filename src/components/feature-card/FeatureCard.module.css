@@ -13,7 +13,7 @@
 
 .card:hover {
   background: linear-gradient(135deg, #00f0b095 0%, #4279bd4a 100%);
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .title {

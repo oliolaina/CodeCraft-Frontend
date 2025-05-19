@@ -4,8 +4,12 @@ import { useAuth } from '../../contexts/UserContext';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { ProgressBar } from '../../components/progress-bar';
-import { BlogCard } from '../../components/blog-card';
+import { Button } from '../../components/button';
+import { Heading, Text } from '../../components/typography';
 import styles from '../page.module.css';
+import profile_image from '../../assets/images/profile_image.svg';
+import python_logo from '../../assets/images/python_logo.png';
+import cpp_logo from '../../assets/images/cpp_logo.png';
 
 const ProfilePage: React.FC = () => {
   const { currentUser, logout } = useAuth();
@@ -15,6 +19,7 @@ const ProfilePage: React.FC = () => {
   React.useEffect(() => {
     if (!currentUser) {
       navigate('/auth');
+      console.log('перенаправление');
     }
   }, [currentUser, navigate]);
 
@@ -34,6 +39,12 @@ const ProfilePage: React.FC = () => {
     return Math.round((completedTopics / totalTopics) * 100);
   };
 
+  const LessonsNeeded = () => {
+    if (currentUser.level == 'intermediate') return 10;
+    if (currentUser.level == 'advanced') return 15;
+    return 5;
+  };
+
   return (
     <div className={styles.page}>
       <Header
@@ -44,54 +55,87 @@ const ProfilePage: React.FC = () => {
         ]}
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
+      <main className={styles.main}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'left',
+            gap: '5%',
+            margin: '15px auto'
+          }}
+        >
+          <img src={profile_image} alt='profile' />
 
-      <h1 style={{ color: '#00f0b1', margin: '32px 0 16px 0' }}>
-        Профиль пользователя {currentUser.login}
-      </h1>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '300px',
+              justifyContent: 'flex-start'
+            }}
+          >
+            <h1
+              style={{
+                color: '#00f0b1',
+                margin: '32px 0 32px 5%',
+                fontSize: '36px',
+                fontFamily: 'monospace'
+              }}
+            >
+              {currentUser.login}
+            </h1>
 
-      <div style={{ marginBottom: '16px' }}>
-        Уровень:{' '}
-        {currentUser.level === 'beginner'
-          ? 'Начинающий'
-          : currentUser.level === 'intermediate'
-            ? 'expert'
-            : 'Продвинутый'}
-      </div>
+            <div
+              style={{
+                fontFamily: 'Comfortaa',
+                color: '#BBFAE9',
+                margin: '0 0 0 5%',
+                lineHeight: '1.5'
+              }}
+            >
+              Уровень:{' '}
+              {currentUser.level === 'beginner'
+                ? 'Начинающий'
+                : currentUser.level === 'intermediate'
+                  ? 'Средний'
+                  : 'Продвинутый'}
+            </div>
+          </div>
 
-      <ProgressBar
-        icon={<span>🐍</span>}
-        title='Python'
-        percent={calculateProgress('python-basics')}
-      />
+          <div style={{ position: 'absolute', right: '10%', top: '114px' }}>
+            <Button
+              onClick={logout}
+              label='Выйти из аккаунта'
+              sizeType='little'
+            />
+          </div>
+        </div>
 
-      <ProgressBar
-        icon={<span>💻</span>}
-        title='C++'
-        percent={calculateProgress('cpp-advanced')}
-      />
+        <Text
+          style={{
+            fontFamily: 'Comfortaa',
+            color: '#BBFAE9',
+            margin: '40px 0 100px 0',
+            lineHeight: '1.7'
+          }}
+        >
+          Вы на верном пути! До следующего уровня осталось{' '}
+          {LessonsNeeded() - currentUser.completedTopics.length} уроков.
+        </Text>
 
-      <BlogCard
-        title='Вы на верном пути!'
-        description={`До следующего уровня осталось ${5 - currentUser.completedTopics.length} уроков.`}
-        image='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80'
-        to='#'
-      />
+        <ProgressBar
+          icon={<img src={python_logo} alt='python' />}
+          title='Python'
+          percent={calculateProgress('python-basics')}
+        />
 
-      <button
-        style={{
-          margin: '32px 0',
-          padding: '12px 32px',
-          borderRadius: 12,
-          background: '#fd9e02',
-          color: '#fff',
-          border: 'none',
-          fontWeight: 700
-        }}
-        onClick={logout}
-      >
-        Выйти из аккаунта
-      </button>
-
+        <ProgressBar
+          icon={<img src={cpp_logo} alt='cpp' />}
+          title='C++'
+          percent={calculateProgress('cpp-advanced')}
+        />
+      </main>
       <Footer />
     </div>
   );

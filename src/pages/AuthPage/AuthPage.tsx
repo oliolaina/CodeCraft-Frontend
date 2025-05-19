@@ -28,15 +28,13 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const handleRegister = async (loginValue: string, password: string) => {
+  const handleRegister = (loginValue: string, password: string) => {
     const result = register(loginValue, password);
     if (result.success) {
-      // После регистрации автоматически входим
       const loginResult = login(loginValue, password);
       if (loginResult.success) {
-        navigate('/profile');
-      } else {
-        setError(loginResult.error || 'Вы успешно зарегистрировались! Зайдите повторно под Вашим именем');
+        setError('Регистрация успешна! Войдите вручную');
+        console.log('message sent');
       }
     } else {
       setError(result.error || 'Ошибка регистрации');
@@ -44,13 +42,27 @@ const AuthPage: React.FC = () => {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", width: '60%', height: '50%', margin: '15vh auto 0' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '60%',
+        height: '50%',
+        margin: '15vh auto 0'
+      }}
+    >
       <AuthForm
         onLogin={handleLogin}
         onRegister={handleRegister}
         error={error}
       />
-      <a href = "/" style = {{margin: '0 auto', fontFamily: 'Comfortaa', color: "#fff"}}>На Главную</a>
+      <a
+        href='/'
+        style={{ margin: '0 auto', fontFamily: 'Comfortaa', color: '#fff' }}
+      >
+        На Главную
+      </a>
     </div>
   );
 };

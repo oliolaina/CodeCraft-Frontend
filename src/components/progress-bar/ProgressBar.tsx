@@ -4,7 +4,7 @@ import styles from './ProgressBar.module.css';
 interface ProgressBarProps {
   icon: React.ReactNode;
   title: string;
-  percent: number; // 0-100
+  percent: number;
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({

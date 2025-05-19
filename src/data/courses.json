@@ -15,6 +15,23 @@
             {
               "type": "text",
               "content": "## Шаблоны в C++\nПозволяют создавать обобщённые классы..."
+            },
+            {
+              "type": "image",
+              "content": "https://pic.rutubelist.ru/video/5d/94/5d94273a5d026f7da4e8878808bfae91.png"
+            },
+            {
+              "type": "text",
+              "content": "## Как работает input()\nФункция `input()` позволяет получать данные от пользователя..."
+            },
+            {
+              "type": "code",
+              "content": "name = input('Введите имя: ')\nprint('Привет, ' + name)"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу, которая запрашивает возраст и выводит 'Вам X лет'.",
+              "solution": "age = input('Сколько вам лет? ')\nprint('Вам ' + age + ' лет')"
             }
           ]
         },
