@@ -1,5 +1,5 @@
 .editorWrap {
-  background: #2F576B;
+  background: #2f576b;
   border-radius: 24px;
   box-shadow: 0 2px 12px rgba(0, 240, 177, 0.08);
   padding: 24px 24px 16px 24px;
@@ -40,16 +40,16 @@
   background: linear-gradient(90deg, #00f0b1 25%, #fd9e02 100%);
   color: #013047;
 }
-@media (max-width: 700px) {
+@media (max-width: 1224px) {
   .editorWrap {
-    padding: 12px 4px 8px 4px;
+    padding: 8px 2px 4px 2px;
   }
   .editor {
-    font-size: 14px;
-    min-height: 120px;
+    font-size: 12px;
+    min-height: 80px;
   }
   .submitBtn {
-    font-size: 15px;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }

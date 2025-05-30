@@ -28,3 +28,18 @@
   font-size: 18px;
   color: #cccccc;
 }
+
+@media (max-width: 1224px) {
+  .card {
+    width: 100%;
+    padding: 12px 4px;
+    border-radius: 16px;
+  }
+  .title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .text {
+    font-size: 12px;
+  }
+}

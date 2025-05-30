@@ -19,3 +19,13 @@
   right: 0;
   top: 0;
 }
+
+@media (max-width: 1224px) {
+  .background {
+    min-height: 180px;
+    padding: 16px 4px 24px 4px;
+  }
+  .image {
+    width: 100%;
+  }
+}

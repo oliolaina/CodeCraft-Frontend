@@ -61,7 +61,7 @@ export const LessonCard: React.FC<LessonCardProps> = ({
       style={background ? { background } : {}}
     >
       <div className={styles.icon}>
-        <img src={getImage()} alt='icon' />
+        <img src={getImage()} className={styles.icon} alt='icon' />
       </div>
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>

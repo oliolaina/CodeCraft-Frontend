@@ -38,7 +38,7 @@ export const registerUser = (
 
   const newUser: User = {
     login,
-    password, // В реальном проекте хешируйте пароль!
+    password,
     level: 'beginner',
     completedTopics: []
   };

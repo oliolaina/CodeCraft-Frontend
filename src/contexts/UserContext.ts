@@ -23,6 +23,7 @@ type AuthContextType = {
     password: string
   ) => { success: boolean; error?: string | null };
   logout: () => void;
+  markTopicAsCompleted: (courseId: string, topicId: string) => void;
 };
 
 // Создаём контекст с дефолтными значениями
@@ -31,7 +32,8 @@ const AuthContext = createContext<AuthContextType>({
   users: [],
   register: () => ({ success: false, error: 'Контекст не инициализирован' }),
   login: () => ({ success: false, error: 'Контекст не инициализирован' }),
-  logout: () => {}
+  logout: () => {},
+  markTopicAsCompleted: () => {}
 });
 
 // Хук для удобного использования

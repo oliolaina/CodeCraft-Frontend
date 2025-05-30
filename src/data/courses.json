@@ -14,24 +14,40 @@
           "blocks": [
             {
               "type": "text",
-              "content": "## Шаблоны в C++\nПозволяют создавать обобщённые классы..."
+              "content": "Python — интерпретируемый язык с простым и понятным синтаксисом. Программа состоит из последовательности инструкций, которые выполняются сверху вниз. Каждая новая инструкция обычно начинается с новой строки."
             },
             {
               "type": "image",
-              "content": "https://pic.rutubelist.ru/video/5d/94/5d94273a5d026f7da4e8878808bfae91.png"
+              "content": "https://ih1.redbubble.net/image.146772382.7498/flat,750x,075,f-pad,750x1000,f8f8f8.u5.jpg"
             },
             {
               "type": "text",
-              "content": "## Как работает input()\nФункция `input()` позволяет получать данные от пользователя..."
+              "content": "Переменные и типы данных\nВ Python не нужно объявлять тип переменной. Основные типы данных:\n- int (целые числа)\n- float (дробные числа)\n- str (строки)\n- bool (логические значения True/False)"
             },
             {
               "type": "code",
-              "content": "name = input('Введите имя: ')\nprint('Привет, ' + name)"
+              "content": "age = 25  # целое число\nprice = 9.99  # дробное число\nname = \"Анна\"  # строка\nis_active = True  # булево значение"
+            },
+            {
+              "type": "text",
+              "content": "Основные операторы:\n- Арифметические: +, -, *, /, //, %\n- Сравнения: ==, !=, >, <\n- Логические: and, or, not"
+            },
+            {
+              "type": "code",
+              "content": "x = 5 + 3  # сложение\nis_adult = age >= 18  # сравнение\naccess = is_active and is_adult  # логическое И"
+            },
+            {
+              "type": "text",
+              "content": "Работа с вводом и выводом\nФункция input() получает данные от пользователя, а print() выводит информацию. Все данные от input() приходят как строка (str)."
+            },
+            {
+              "type": "code",
+              "content": "name = input('Как вас зовут? ')\nage = int(input('Сколько вам лет? '))  # преобразуем в число\nprint(f'Привет, {name}! Тебе {age} лет.')"
             },
             {
               "type": "task",
-              "content": "Напишите программу, которая запрашивает возраст и выводит 'Вам X лет'.",
-              "solution": "age = input('Сколько вам лет? ')\nprint('Вам ' + age + ' лет')"
+              "content": "Напишите программу, которая запрашивает два числа и выводит их сумму.",
+              "solution": "num1 = int(input('Введите первое число: '))\nnum2 = int(input('Введите второе число: '))\nprint('Сумма:', num1 + num2)"
             }
           ]
         },
@@ -40,42 +56,330 @@
           "title": "Условные конструкции, циклы и функции",
           "difficulty": "easy",
           "description": "Изучение условных операторов (if, else), циклов (for, while), функций.",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Условные конструкции позволяют программе принимать решения. В Python для этого используются операторы if, elif и else. Отступы (4 пробела) определяют блоки кода, которые выполняются при выполнении условия."
+            },
+            {
+              "type": "code",
+              "content": "age = int(input('Сколько вам лет? '))\nif age < 18:\n    print('Вы несовершеннолетний')\nelif age == 18:\n    print('Поздравляем с совершеннолетием!')\nelse:\n    print('Вы взрослый')"
+            },
+            {
+              "type": "text",
+              "content": "Циклы позволяют повторять блок кода несколько раз. В Python есть два основных типа циклов:\n1. while - выполняет код, пока условие истинно\n2. for - перебирает элементы последовательности"
+            },
+            {
+              "type": "code",
+              "content": "# Цикл while\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n\n# Цикл for\nfor i in range(5):\n    print(i)"
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/originals/58/bf/1a/58bf1a80208a06c398738390c4176449.png"
+            },
+            {
+              "type": "text",
+              "content": "Функции - это блоки кода, которые можно вызывать по имени. Они помогают избегать повторения кода. Функции определяются с помощью ключевого слова def, могут принимать параметры и возвращать значения."
+            },
+            {
+              "type": "code",
+              "content": "def greet(name):\n    \"\"\"Функция приветствия\"\"\"\n    return f'Привет, {name}!'\n\nprint(greet('Анна'))"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу, которая запрашивает число у пользователя и возвращает True, если оно четное, и False, если нечетное.",
+              "solution": "def is_even(num):\n    return num % 2 == 0\n\nnumber = int(input('Введите число: '))\nprint('Четное' if is_even(number) else 'Нечетное')"
+            }
+          ]
         },
         {
           "id": "python-3",
           "title": "Коллекции данных",
           "difficulty": "medium",
           "description": "Работа со списками, словарями, множествами и кортежами. Генераторы, встроенные методы и структура collections.",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Коллекции данных в Python позволяют хранить и организовывать информацию. Основные типы коллекций: списки (list), кортежи (tuple), словари (dict) и множества (set). Каждая из них имеет свои особенности и методы работы."
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/originals/12/8d/11/128d11e8806ccdf264342d545d695ded.jpg"
+            },
+            {
+              "type": "text",
+              "content": "Списки (list) - упорядоченные изменяемые коллекции. Создаются с помощью квадратных скобок []."
+            },
+            {
+              "type": "code",
+              "content": "fruits = ['apple', 'banana', 'cherry']\nfruits.append('orange')  # Добавление элемента\nprint(fruits[1])  # Обращение по индексу\nfruits.remove('banana')  # Удаление элемента"
+            },
+            {
+              "type": "text",
+              "content": "Кортежи (tuple) - упорядоченные неизменяемые коллекции. Создаются с помощью круглых скобок ()."
+            },
+            {
+              "type": "code",
+              "content": "colors = ('red', 'green', 'blue')\nprint(colors[0])  # Обращение по индексу\n# colors[0] = 'yellow'  # Вызовет ошибку, так как кортеж неизменяем"
+            },
+            {
+              "type": "text",
+              "content": "Словари (dict) - неупорядоченные коллекции пар ключ-значение. Создаются с помощью фигурных скобок {}."
+            },
+            {
+              "type": "code",
+              "content": "person = {'name': 'Alice', 'age': 25, 'city': 'Moscow'}\nprint(person['name'])  # Получение значения по ключу\nperson['job'] = 'developer'  # Добавление новой пары\nkeys = person.keys()  # Получение всех ключей"
+            },
+            {
+              "type": "text",
+              "content": "Множества (set) - неупорядоченные коллекции уникальных элементов. Создаются с помощью set() или фигурных скобок {}."
+            },
+            {
+              "type": "code",
+              "content": "unique_numbers = {1, 2, 3, 3, 4, 4}  # {1, 2, 3, 4}\nunique_numbers.add(5)  # Добавление элемента\nunique_numbers.discard(2)  # Удаление элемента"
+            },
+            {
+              "type": "text",
+              "content": "Генераторы коллекций позволяют создавать коллекции в одну строку. Существуют:\n- Генераторы списков (list comprehension)\n- Генераторы словарей (dict comprehension)\n- Генераторы множеств (set comprehension)"
+            },
+            {
+              "type": "code",
+              "content": "# Генератор списка\nsquares = [x**2 for x in range(10)]\n\n# Генератор словаря\nsquare_dict = {x: x**2 for x in range(5)}\n\n# Генератор множества\nunique_lengths = {len(x) for x in ['apple', 'banana', 'cherry']}"
+            },
+            {
+              "type": "text",
+              "content": "Модуль collections предоставляет специализированные типы данных:\n- namedtuple - кортежи с именованными полями\n- deque - двусторонняя очередь\n- Counter - подсчет элементов\n- defaultdict - словарь со значением по умолчанию"
+            },
+            {
+              "type": "code",
+              "content": "from collections import Counter, defaultdict\n\n# Подсчет элементов\ncounts = Counter(['apple', 'banana', 'apple', 'cherry'])\n\n# Словарь со значением по умолчанию\nd = defaultdict(int)\nd['apple'] += 1"
+            },
+            {
+              "type": "task",
+              "content": "Напишите функцию, которая принимает список чисел и возвращает словарь, где ключи - это числа из списка, а значения - их квадраты. Используйте генератор словаря.",
+              "solution": "def create_square_dict(numbers):\n    return {num: num**2 for num in numbers}\n\nprint(create_square_dict([1, 2, 3, 4, 5]))"
+            }
+          ]
         },
         {
           "id": "python-4",
           "title": "Файлы и форматы данных",
           "difficulty": "medium",
           "description": "Открытие, чтение и запись файлов. Работа с распространёнными форматами (CSV, JSON). Основы сериализации.",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Работа с файлами — важная часть программирования. Python предоставляет простые инструменты для чтения и записи файлов. Основные режимы работы с файлами:\n- 'r' — чтение (по умолчанию)\n- 'w' — запись (перезапись)\n- 'a' — добавление в конец файла\n- 'b' — бинарный режим\n- '+' — чтение и запись"
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/736x/bc/dd/96/bcdd96743e42bfae0047f9225c8dc4c9.jpg"
+            },
+            {
+              "type": "code",
+              "content": "# Запись в файл\nwith open('example.txt', 'w') as file:\n    file.write('Привет, мир!')\n\n# Чтение из файла\nwith open('example.txt', 'r') as file:\n    content = file.read()\n    print(content)"
+            },
+            {
+              "type": "text",
+              "content": "Формат CSV (Comma-Separated Values) часто используется для табличных данных. Модуль csv упрощает работу с такими файлами."
+            },
+            {
+              "type": "code",
+              "content": "import csv\n\n# Запись CSV\nwith open('data.csv', 'w', newline='') as file:\n    writer = csv.writer(file)\n    writer.writerow(['Имя', 'Возраст'])\n    writer.writerow(['Анна', 25])\n\n# Чтение CSV\nwith open('data.csv', 'r') as file:\n    reader = csv.reader(file)\n    for row in reader:\n        print(row)"
+            },
+            {
+              "type": "text",
+              "content": "JSON (JavaScript Object Notation) — популярный формат для обмена данными. Модуль json позволяет преобразовывать Python-объекты в JSON-строки и обратно."
+            },
+            {
+              "type": "code",
+              "content": "import json\n\n# Сериализация в JSON\ndata = {'name': 'Анна', 'age': 25, 'city': 'Москва'}\njson_str = json.dumps(data, ensure_ascii=False)\n\n# Запись JSON в файл\nwith open('data.json', 'w', encoding='utf-8') as file:\n    json.dump(data, file, ensure_ascii=False, indent=4)\n\n# Чтение JSON из файла\nwith open('data.json', 'r', encoding='utf-8') as file:\n    loaded_data = json.load(file)\n    print(loaded_data)"
+            },
+            {
+              "type": "text",
+              "content": "Сериализация — процесс преобразования объектов в формат для хранения или передачи. Десериализация — обратный процесс. В Python для этого используются модули pickle (для бинарной сериализации) и json (для текстовой)."
+            },
+            {
+              "type": "code",
+              "content": "import pickle\n\n# Сериализация\nwith open('data.pkl', 'wb') as file:\n    pickle.dump(data, file)\n\n# Десериализация\nwith open('data.pkl', 'rb') as file:\n    loaded_data = pickle.load(file)\n    print(loaded_data)"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу, которая:\n1. Создает словарь с данными о книге (название, автор, год)\n2. Сохраняет его в JSON-файл\n3. Затем читает этот файл и выводит данные в формате: 'Книга: НАЗВАНИЕ, Автор: АВТОР, Год: ГОД'",
+              "solution": "import json\n\n# Создание и сохранение данных\nbook = {'title': 'Война и мир', 'author': 'Л. Толстой', 'year': 1869}\nwith open('book.json', 'w', encoding='utf-8') as file:\n    json.dump(book, file, ensure_ascii=False, indent=4)\n\n# Чтение и вывод данных\nwith open('book.json', 'r', encoding='utf-8') as file:\n    data = json.load(file)\n    print(f'Книга: {data[\"title\"]}, Автор: {data[\"author\"]}, Год: {data[\"year\"]}')"
+            }
+          ]
         },
         {
           "id": "python-5",
           "title": "Модули, пакеты и управление зависимостями",
           "difficulty": "medium",
           "description": "Импорт модулей, создание собственных пакетов, организация структуры проекта. Работа с виртуальными окружениями и зависимостями.",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Модули в Python — это файлы с расширением .py, содержащие код. Пакеты — это каталоги с модулями и специальным файлом __init__.py. Они помогают организовать код в логические структуры."
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/736x/7a/d8/06/7ad80632610316e1265709faf95ca376.jpg"
+            },
+            {
+              "type": "code",
+              "content": "# Импорт модуля\nimport math\nprint(math.sqrt(16))  # 4.0\n\n# Импорт конкретной функции\nfrom datetime import datetime\nprint(datetime.now())\n\n# Импорт с псевдонимом\nimport numpy as np"
+            },
+            {
+              "type": "text",
+              "content": "Создание собственного пакета:\n1. Создайте папку с именем пакета\n2. Добавьте файл __init__.py\n3. Создайте модули внутри папки\n4. Импортируйте их через точку (package.module)"
+            },
+            {
+              "type": "code",
+              "content": "# Структура проекта:\n# mypackage/\n#   ├── __init__.py\n#   ├── module1.py\n#   └── module2.py\n\n# Использование:\n# from mypackage import module1\n# from mypackage.module2 import some_function"
+            },
+            {
+              "type": "text",
+              "content": "Виртуальные окружения изолируют зависимости проекта. Создаются командой:\n\npython -m venv имя_окружения\n\nАктивация:\n- Windows: .\\имя_окружения\\Scripts\\activate\n- Linux/Mac: source имя_окружения/bin/activate"
+            },
+            {
+              "type": "image",
+              "content": "https://avatars.mds.yandex.net/i?id=40e78d804e90c43e49fda79bf1f5e5e787eebac9-5304004-images-thumbs&n=13"
+            },
+            {
+              "type": "text",
+              "content": "Управление зависимостями:\n- requirements.txt — список зависимостей\n- pip freeze > requirements.txt — создать файл\n- pip install -r requirements.txt — установить зависимости"
+            },
+            {
+              "type": "code",
+              "content": "# Пример requirements.txt\nflask==2.0.1\npandas>=1.3.0\nnumpy\n\n# Установка всех зависимостей\n# pip install -r requirements.txt"
+            },
+            {
+              "type": "text",
+              "content": "PyPI (Python Package Index) — репозиторий пакетов Python. Для публикации своего пакета нужно:\n1. Создать setup.py\n2. Собрать дистрибутив (python setup.py sdist bdist_wheel)\n3. Загрузить на PyPI (twine upload dist/*)"
+            },
+            {
+              "type": "code",
+              "content": "# Пример setup.py\nfrom setuptools import setup, find_packages\n\nsetup(\n    name='mypackage',\n    version='0.1',\n    packages=find_packages(),\n    install_requires=['requests'],\n)"
+            },
+            {
+              "type": "task",
+              "content": "Создайте Python-пакет с названием 'calculator', содержащий:\n1. Модуль operations.py с функциями add(a, b) и multiply(a, b)\n2. Модуль main.py, импортирующий эти функции\n3. Файл requirements.txt с одной зависимостью (например, numpy)\n4. Установите пакет в виртуальном окружении",
+              "solution": "# Структура:\n# calculator/\n#   ├── __init__.py\n#   ├── operations.py\n#   ├── main.py\n#   └── requirements.txt\n\n# operations.py\n\"\"\"def add(a, b):\n    return a + b\n\ndef multiply(a, b):\n    return a * b\"\"\"\n\n# main.py\n\"\"\"from calculator.operations import add, multiply\n\nprint(add(2, 3))\nprint(multiply(2, 3))\"\"\"\n\n# requirements.txt\n\"\"\"numpy\"\"\"\n\n# Команды для установки:\n# python -m venv venv\n# source venv/bin/activate  # или .\\venv\\Scripts\\activate\n# pip install -r requirements.txt"
+            }
+          ]
         },
         {
           "id": "python-6",
           "title": "Объектно-ориентированное программирование",
           "difficulty": "hard",
           "description": " Классы, наследование, инкапсуляция, полиморфизм.",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Объектно-ориентированное программирование (ООП) — парадигма, основанная на концепции объектов. В Python реализуется через классы и включает четыре основных принципа: инкапсуляцию, наследование, полиморфизм и абстракцию."
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/736x/49/de/fe/49defe942f217008f6ea8a74c690f69c.jpg"
+            },
+            {
+              "type": "text",
+              "content": "Классы — это шаблоны для создания объектов. Они содержат атрибуты (данные) и методы (функции). Создаются с помощью ключевого слова class."
+            },
+            {
+              "type": "code",
+              "content": "class Dog:\n    # Конструктор (инициализатор)\n    def __init__(self, name, age):\n        self.name = name  # атрибут экземпляра\n        self.age = age\n    \n    # Метод экземпляра\n    def bark(self):\n        print(f\"{self.name} says woof!\")\n\n# Создание объекта\nmy_dog = Dog(\"Rex\", 3)\nmy_dog.bark()"
+            },
+            {
+              "type": "text",
+              "content": "Инкапсуляция — сокрытие внутренней реализации. В Python используются:\n- Публичные атрибуты (name)\n- Защищённые (_name)\n- Приватные (__name)"
+            },
+            {
+              "type": "code",
+              "content": "class BankAccount:\n    def __init__(self, balance):\n        self.__balance = balance  # приватный атрибут\n    \n    def deposit(self, amount):\n        self.__balance += amount\n    \n    def get_balance(self):  # геттер\n        return self.__balance\n\naccount = BankAccount(1000)\n# account.__balance  # Ошибка! Доступ запрещён"
+            },
+            {
+              "type": "text",
+              "content": "Наследование позволяет создавать новые классы на основе существующих. Дочерний класс наследует атрибуты и методы родительского."
+            },
+            {
+              "type": "code",
+              "content": "class Animal:\n    def __init__(self, name):\n        self.name = name\n    \n    def speak(self):\n        raise NotImplementedError(\"Subclass must implement\")\n\nclass Cat(Animal):\n    def speak(self):\n        return \"Meow!\"\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof!\""
+            },
+            {
+              "type": "text",
+              "content": "Полиморфизм — возможность использовать объекты разных классов одинаковым образом. В Python реализуется через переопределение методов."
+            },
+            {
+              "type": "code",
+              "content": "animals = [Cat(\"Tom\"), Dog(\"Rex\")]\nfor animal in animals:\n    print(animal.name + \": \" + animal.speak())"
+            },
+            {
+              "type": "text",
+              "content": "Магические методы (__method__) позволяют переопределять поведение объектов. Например, __str__ для строкового представления."
+            },
+            {
+              "type": "code",
+              "content": "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n    \n    def __str__(self):\n        return f\"'{self.title}' by {self.author}\"\n\nbook = Book(\"Python\", \"Guido van Rossum\")\nprint(book)  # Вызовет __str__"
+            },
+            {
+              "type": "task",
+              "content": "Создайте класс Employee с атрибутами name, position и salary. Реализуйте:\n1. Инкапсуляцию (защитите salary)\n2. Метод для повышения зарплаты (raise_salary)\n3. Наследуйте класс Manager с дополнительным атрибутом department\n4. Переопределите __str__ для красивого вывода информации",
+              "solution": "class Employee:\n    def __init__(self, name, position, salary):\n        self.name = name\n        self.position = position\n        self.__salary = salary\n    \n    def raise_salary(self, percent):\n        self.__salary *= (1 + percent/100)\n    \n    def get_salary(self):\n        return self.__salary\n    \n    def __str__(self):\n        return f\"{self.name} ({self.position})\"\n\nclass Manager(Employee):\n    def __init__(self, name, position, salary, department):\n        super().__init__(name, position, salary)\n        self.department = department\n    \n    def __str__(self):\n        return f\"{super().__str__()}, Department: {self.department}\"\n\n# Пример использования\nemp = Employee(\"Ivan\", \"Developer\", 5000)\nmng = Manager(\"Anna\", \"CTO\", 10000, \"IT\")\nprint(emp)\nprint(mng)"
+            }
+          ]
         },
         {
           "id": "python-7",
           "title": "Алгоритмы, библиотеки и асинхронность",
           "difficulty": "hard",
           "description": "Основы алгоритмов (поиск, сортировка), рекурсия, а также использование популярных библиотек (numpy, pandas). Введение в асинхронное программирование с asyncio",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Алгоритмы — это пошаговые инструкции для решения задач. В Python есть встроенные алгоритмы сортировки и поиска, а также возможность реализации собственных. Рассмотрим основные алгоритмы сортировки: пузырьком, быструю и встроенную sorted()."
+            },
+            {
+              "type": "image",
+              "content": "https://i.postimg.cc/vmBBH98B/everything.jpg"
+            },
+            {
+              "type": "code",
+              "content": "# Сортировка пузырьком\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n-1):\n        for j in range(n-i-1):\n            if arr[j] > arr[j+1]:\n                arr[j], arr[j+1] = arr[j+1], arr[j]\n    return arr\n\n# Встроенная сортировка\nnumbers = [5, 2, 9, 1, 5]\nsorted_numbers = sorted(numbers)  # Возвращает новый список\nnumbers.sort()  # Сортирует текущий список"
+            },
+            {
+              "type": "text",
+              "content": "Рекурсия — когда функция вызывает саму себя. Полезно для задач, которые можно разбить на аналогичные подзадачи. Важно определить базовый случай для выхода из рекурсии."
+            },
+            {
+              "type": "code",
+              "content": "# Рекурсивный факториал\ndef factorial(n):\n    if n == 1:  # Базовый случай\n        return 1\n    return n * factorial(n-1)\n\n# Числа Фибоначчи\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)"
+            },
+            {
+              "type": "text",
+              "content": "Библиотеки NumPy и Pandas — основа для работы с данными в Python. NumPy предоставляет многомерные массивы и математические функции, Pandas — структуры данных для анализа (DataFrame, Series)."
+            },
+            {
+              "type": "code",
+              "content": "import numpy as np\nimport pandas as pd\n\n# Создание массива NumPy\narr = np.array([1, 2, 3])\nprint(arr * 2)  # Векторизованные операции\n\n# DataFrame в Pandas\ndata = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}\ndf = pd.DataFrame(data)\nprint(df[df['Age'] > 25])  # Фильтрация"
+            },
+            {
+              "type": "text",
+              "content": "Асинхронное программирование позволяет эффективно работать с I/O-операциями. Модуль asyncio предоставляет инструменты для работы с корутинами (async/await)."
+            },
+            {
+              "type": "code",
+              "content": "import asyncio\n\nasync def fetch_data():\n    print(\"Начало загрузки\")\n    await asyncio.sleep(2)  # Имитация долгой операции\n    print(\"Данные загружены\")\n    return \"результат\"\n\nasync def main():\n    task = asyncio.create_task(fetch_data())\n    print(\"Делаем что-то ещё\")\n    result = await task\n    print(f\"Получены: {result}\")\n\nasyncio.run(main())"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу, которая:\n1. Генерирует массив из 100 случайных чисел (NumPy)\n2. Сортирует его с помощью быстрой сортировки (рекурсивно)\n3. Сохраняет результат в CSV файл (Pandas)\n4. Асинхронно загружает данные из этого файла",
+              "solution": "import numpy as np\nimport pandas as pd\nimport asyncio\n\n# Быстрая сортировка\ndef quick_sort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr)//2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quick_sort(left) + middle + quick_sort(right)\n\n# "
+            },
+            {
+              "type": "text",
+              "content": "Эффективное использование алгоритмов и библиотек значительно ускоряет разработку. Асинхронность особенно полезна для веб-приложений и работы с сетью, где много времени тратится на ожидание ответов."
+            }
+          ]
         }
       ]
     },
@@ -90,42 +394,318 @@
           "title": "Введение в C++",
           "difficulty": "easy",
           "description": "История языка, особенности, области применения. Первая программа (Hello World)",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "C++ — мощный язык программирования общего назначения, созданный Бьёрном Страуструпом в 1985 году как расширение языка C. Он сочетает низкоуровневые возможности C с объектно-ориентированными и обобщёнными парадигмами программирования."
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/550x/64/ac/a1/64aca1809fa5d2308553de2167a3e714.jpg"
+            },
+            {
+              "type": "text",
+              "content": "Основные особенности C++:\n- Поддержка ООП (классы, наследование, полиморфизм)\n- Шаблоны (generic programming)\n- Ручное управление памятью\n- Высокая производительность\n- Богатая стандартная библиотека (STL)"
+            },
+            {
+              "type": "text",
+              "content": "Области применения C++:\n1. Системное программирование (ОС, драйверы)\n2. Разработка игр (Unreal Engine)\n3. Высокопроизводительные вычисления\n4. Встраиваемые системы\n5. Графические приложения"
+            },
+            {
+              "type": "code",
+              "content": "// Первая программа на C++\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Разбор кода Hello World:\n1. #include <iostream> — подключение библиотеки ввода/вывода\n2. int main() — главная функция программы\n3. std::cout — вывод в консоль\n4. << — оператор вывода\n5. std::endl — конец строки\n6. return 0 — успешное завершение"
+            },
+            {
+              "type": "text",
+              "content": "Для компиляции C++ программ можно использовать:\n- g++ (GNU Compiler Collection)\n- clang (LLVM)\n- MSVC (Microsoft Visual C++)\n\nКоманда компиляции: g++ program.cpp -o program"
+            },
+            {
+              "type": "text",
+              "content": "C++ продолжает развиваться. Современные стандарты (C++11/14/17/20) добавляют новые возможности:\n- auto для автоматического вывода типов\n- лямбда-выражения\n- умные указатели\n- концепции\n- модули (C++20)"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу на C++, которая:\n1. Выводит ваше имя\n2. Выводит текущий год\n3. Использует два отдельных оператора cout",
+              "solution": "#include <iostream>\n\nint main() {\n    std::cout << \"My name: Ivan\" << std::endl;\n    std::cout << \"Current year: 2023\" << std::endl;\n    return 0;\n}"
+            }
+          ]
         },
         {
           "id": "cpp-2",
           "title": "Переменные и типы данных",
           "difficulty": "easy",
           "description": "Примитивные типы (int, float, char, bool). Объявление и инициализация переменных",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "В C++ все переменные должны иметь определенный тип данных перед их использованием. Основные примитивные типы включают целые числа, числа с плавающей точкой, символы и логические значения."
+            },
+            {
+              "type": "image",
+              "content": "https://avatars.mds.yandex.net/i?id=06ca5cd4903599256980acadd63ce5b5_l-5381778-images-thumbs&n=13"
+            },
+            {
+              "type": "text",
+              "content": "Основные примитивные типы данных в C++:\n\n1. Целочисленные:\n   - int (4 байта, обычно от -2^31 до 2^31-1)\n   - short (2 байта)\n   - long (4 или 8 байт)\n   - long long (8 байт)\n\n2. С плавающей точкой:\n   - float (4 байта, ~7 значащих цифр)\n   - double (8 байта, ~15 значащих цифр)\n\n3. Символьный:\n   - char (1 байт, хранит ASCII-символ)\n\n4. Логический:\n   - bool (true/false)"
+            },
+            {
+              "type": "code",
+              "content": "// Объявление и инициализация переменных\nint age = 25;               // Целое число\nfloat temperature = 36.6f;  // Число с плавающей точкой (f указывает на float)\ndouble pi = 3.14159;        // Двойная точность\nchar grade = 'A';           // Символ\nbool is_active = true;      // Логическое значение\n\n// Можно объявлять несколько переменных одного типа\nint x = 5, y = 10, z = 15;"
+            },
+            {
+              "type": "text",
+              "content": "Разница между объявлением и инициализацией:\n- Объявление: int count; (переменная создана, но значение не задано)\n- Инициализация: int count = 0; (переменная создана и сразу получила значение)\n\nВсегда лучше сразу инициализировать переменные!"
+            },
+            {
+              "type": "code",
+              "content": "// Примеры разных способов инициализации в C++\nint a = 10;     // Копирующая инициализация\nint b(20);      // Прямая инициализация\nint c{30};      // Uniform инициализация (рекомендуется в современном C++)\nint d = {40};   // Комбинированная инициализация\n\n// Uniform инициализация предотвращает сужающие преобразования\ndouble price = 9.99;\n// int discount{price};  // Ошибка компиляции (сужающее преобразование)\nint discount(price);    // Компилируется, но теряется дробная часть"
+            },
+            {
+              "type": "text",
+              "content": "Модификаторы типов:\n- signed/unsigned (для целых чисел)\n- short/long (изменяют размер типа)\n\nПримеры:\nunsigned int positive_only = 4000000000;\nlong double extended_precision = 3.141592653589793238L;"
+            },
+            {
+              "type": "code",
+              "content": "// Определение размера типов данных\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Size of char: \" << sizeof(char) << \" byte\" << endl;\n    cout << \"Size of int: \" << sizeof(int) << \" bytes\" << endl;\n    cout << \"Size of float: \" << sizeof(float) << \" bytes\" << endl;\n    cout << \"Size of double: \" << sizeof(double) << \" bytes\" << endl;\n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "В современном C++ (C++11 и новее) рекомендуется использовать:\n1. Uniform инициализацию ({})\n2. auto для автоматического вывода типов (auto value = 5;)\n3. Фигурные скобки помогают избежать неявных преобразований типов и делают код более безопасным."
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу на C++, которая:\n1. Объявляет переменные разных типов (int, float, char, bool)\n2. Инициализирует их значениями\n3. Выводит значения всех переменных и их размеры в байтах\n4. Использует uniform инициализацию ({}) хотя бы для одной переменной",
+              "solution": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Инициализация переменных\n    int age{25};\n    float temperature = 36.6f;\n    char initial = 'J';\n    bool is_student{true};\n\n    // Вывод значений\n    cout << \"Age: \" << age << \" (size: \" << sizeof(age) << \" bytes)\" << endl;\n    cout << \"Temperature: \" << temperature << \" (size: \" << sizeof(temperature) << \" bytes)\" << endl;\n    cout << \"Initial: \" << initial << \" (size: \" << sizeof(initial) << \" byte)\" << endl;\n    cout << boolalpha << \"Is student: \" << is_student << \" (size: \" << sizeof(is_student) << \" byte)\" << endl;\n\n    return 0;\n}"
+            }
+          ]
         },
         {
           "id": "cpp-3",
           "title": "Функции и рекурсия",
           "difficulty": "medium",
           "description": "Объявление и вызов функций. Передача параметров (по значению, ссылке, указателю)",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Функции в C++ — это блоки кода, которые выполняют определенную задачу. Они помогают организовать код, избежать дублирования и сделать программу более читаемой. Функция состоит из:\n1. Возвращаемого типа\n2. Имени функции\n3. Параметров (аргументов)\n4. Тела функции"
+            },
+            {
+              "type": "image",
+              "content": "https://i.pinimg.com/474x/26/e0/77/26e077424242fdf770f12bd542b057c0.jpg?nii=t"
+            },
+            {
+              "type": "code",
+              "content": "// Простейшая функция\n#include <iostream>\nusing namespace std;\n\n// Объявление функции (прототип)\nvoid greet();\n\nint main() {\n    greet();  // Вызов функции\n    return 0;\n}\n\n// Определение функции\nvoid greet() {\n    cout << \"Hello, World!\" << endl;\n}"
+            },
+            {
+              "type": "text",
+              "content": "В C++ есть три способа передачи параметров в функцию:\n1. По значению (создается копия)\n2. По ссылке (&) (работаем с оригиналом)\n3. По указателю (*) (работаем с адресом)"
+            },
+            {
+              "type": "code",
+              "content": "// Примеры разных способов передачи параметров\n#include <iostream>\nusing namespace std;\n\n// По значению (не изменяет оригинал)\nvoid incrementByValue(int x) {\n    x++;\n}\n\n// По ссылке (изменяет оригинал)\nvoid incrementByRef(int &x) {\n    x++;\n}\n\n// По указателю (изменяет оригинал)\nvoid incrementByPtr(int *x) {\n    (*x)++;\n}\n\nint main() {\n    int a = 5;\n    \n    incrementByValue(a);\n    cout << \"After by value: \" << a << endl;  // 5\n    \n    incrementByRef(a);\n    cout << \"After by ref: \" << a << endl;    // 6\n    \n    incrementByPtr(&a);\n    cout << \"After by ptr: \" << a << endl;    // 7\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Рекурсия — когда функция вызывает саму себя. Важные моменты:\n1. Должно быть условие выхода (базовый случай)\n2. Каждый вызов создает новый набор локальных переменных\n3. Может привести к переполнению стека при глубокой рекурсии"
+            },
+            {
+              "type": "code",
+              "content": "// Рекурсивный расчет факториала\n#include <iostream>\nusing namespace std;\n\nint factorial(int n) {\n    if (n <= 1)  // Базовый случай\n        return 1;\n    return n * factorial(n - 1);  // Рекурсивный вызов\n}\n\nint main() {\n    cout << \"5! = \" << factorial(5) << endl;  // 120\n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Перегрузка функций — возможность создавать несколько функций с одним именем, но разными параметрами. Компилятор выбирает нужную версию по типу и количеству аргументов."
+            },
+            {
+              "type": "code",
+              "content": "// Пример перегрузки функций\n#include <iostream>\nusing namespace std;\n\nvoid print(int x) {\n    cout << \"Integer: \" << x << endl;\n}\n\nvoid print(double x) {\n    cout << \"Double: \" << x << endl;\n}\n\nvoid print(const string &s) {\n    cout << \"String: \" << s << endl;\n}\n\nint main() {\n    print(5);         // Вызовет версию для int\n    print(3.14);      // Вызовет версию для double\n    print(\"Hello\");   // Вызовет версию для string\n    \n    return 0;\n}"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу на C++, которая:\n1. Создает функцию isPrime, проверяющую простое ли число (возвращает bool)\n2. Использует передачу параметров по значению\n3. Создает рекурсивную функцию fibonacci для вычисления n-го числа Фибоначчи\n4. В main() проверяет несколько чисел на простоту и выводит ряд Фибоначчи",
+              "solution": "#include <iostream>\nusing namespace std;\n\nbool isPrime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i * i <= n; i++)\n        if (n % i == 0) return false;\n    return true;\n}\n\nint fibonacci(int n) {\n    if (n <= 1) return n;\n    return fibonacci(n-1) + fibonacci(n-2);\n}\n\nint main() {\n    // Проверка на простоту\n    cout << \"7 is prime: \" << boolalpha << isPrime(7) << endl;\n    cout << \"8 is prime: \" << boolalpha << isPrime(8) << endl;\n    \n    // Ряд Фибоначчи\n    cout << \"Fibonacci series up to 10:\";\n    for (int i = 0; i < 10; i++)\n        cout << \" \" << fibonacci(i);\n    cout << endl;\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Советы по работе с функциями в C++:\n1. Используйте const для параметров, которые не должны изменяться\n2. Для больших объектов передавайте по const ссылке\n3. Разделяйте объявление (в .h файле) и определение (в .cpp файле)\n4. Избегайте глубокой рекурсии (лучше использовать итерацию)\n5. Используйте перегрузку для родственных операций"
+            }
+          ]
         },
         {
           "id": "cpp-4",
           "title": "Массивы и строки",
           "difficulty": "medium",
           "description": "Статические массивы (int arr[10]). Работа со строками",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Массивы в C++ — это структуры данных, которые хранят набор элементов одного типа. Статические массивы имеют фиксированный размер, который определяется при создании и не может быть изменен во время выполнения программы."
+            },
+            {
+              "type": "image",
+              "content": "https://media.geeksforgeeks.org/wp-content/uploads/20230302092653/C-array-initialization.png"
+            },
+            {
+              "type": "code",
+              "content": "// Объявление и инициализация статического массива\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Способ 1: объявление с последующей инициализацией\n    int numbers1[5];\n    numbers1[0] = 10;\n    numbers1[1] = 20;\n    \n    // Способ 2: инициализация при объявлении\n    int numbers2[5] = {1, 2, 3, 4, 5};\n    \n    // Способ 3: инициализация без указания размера\n    int numbers3[] = {10, 20, 30, 40, 50};\n    \n    // Доступ к элементам массива\n    cout << \"First element: \" << numbers3[0] << endl;\n    cout << \"Third element: \" << numbers3[2] << endl;\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Строки в C++ можно представлять двумя способами:\n1. Как массивы символов (char[]) в стиле C\n2. Как объекты класса string из стандартной библиотеки\n\nМассивы символов должны заканчиваться нуль-терминатором ('\\0')"
+            },
+            {
+              "type": "code",
+              "content": "// Работа со строками как с массивами символов\n#include <iostream>\n#include <cstring>  // Для функций работы со строками в стиле C\nusing namespace std;\n\nint main() {\n    char name1[10] = {'J', 'o', 'h', 'n', '\\0'};\n    char name2[] = \"Alice\";  // Автоматически добавляется '\\0'\n    \n    cout << \"Name1: \" << name1 << endl;\n    cout << \"Name2: \" << name2 << endl;\n    \n    // Использование функций из cstring\n    cout << \"Length of name2: \" << strlen(name2) << endl;\n    \n    char fullName[20];\n    strcpy(fullName, name1);  // Копирование\n    strcat(fullName, \" \");    // Конкатенация\n    strcat(fullName, name2);\n    \n    cout << \"Full name: \" << fullName << endl;\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Класс string из стандартной библиотеки C++ предоставляет более удобный и безопасный способ работы со строками. Он автоматически управляет памятью и предоставляет множество полезных методов."
+            },
+            {
+              "type": "code",
+              "content": "// Работа со строками через класс string\n#include <iostream>\n#include <string>  // Для класса string\nusing namespace std;\n\nint main() {\n    string s1 = \"Hello\";\n    string s2(\"World\");\n    string s3;\n    \n    s3 = s1 + \" \" + s2;  // Конкатенация\n    \n    cout << s3 << endl;\n    cout << \"Length: \" << s3.length() << endl;\n    cout << \"First character: \" << s3[0] << endl;\n    cout << \"Substring: \" << s3.substr(0, 5) << endl;\n    \n    // Поиск в строке\n    size_t pos = s3.find(\"World\");\n    if (pos != string::npos) {\n        cout << \"Found at position: \" << pos << endl;\n    }\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Многомерные массивы позволяют хранить данные в табличной форме. В C++ они реализуются как массивы массивов."
+            },
+            {
+              "type": "code",
+              "content": "// Работа с двумерными массивами\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Объявление и инициализация\n    int matrix[2][3] = {\n        {1, 2, 3},\n        {4, 5, 6}\n    };\n    \n    // Перебор элементов\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 3; j++) {\n            cout << matrix[i][j] << \" \";\n        }\n        cout << endl;\n    }\n    \n    return 0;\n}"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу на C++, которая:\n1. Создает массив из 10 целых чисел и заполняет его случайными значениями (от 1 до 100)\n2. Находит максимальный и минимальный элементы массива\n3. Создает две строки (как массивы char) с именами\n4. Объединяет их в одну строку с разделителем \" - \"\n5. Выводит все результаты",
+              "solution": "#include <iostream>\n#include <cstring>\n#include <cstdlib>\n#include <ctime>\nusing namespace std;\n\nint main() {\n    srand(time(0));  // Инициализация генератора случайных чисел\n    \n    // Часть 1: работа с массивом\n    int arr[10];\n    for (int i = 0; i < 10; i++) {\n        arr[i] = rand() % 100 + 1;\n    }\n    \n    int min = arr[0], max = arr[0];\n    for (int i = 1; i < 10; i++) {\n        if (arr[i] < min) min = arr[i];\n        if (arr[i] > max) max = arr[i];\n    }\n    \n    cout << \"Array: \";\n    for (int num : arr) {\n        cout << num << \" \";\n    }\n    cout << \"\\nMin: \" << min << \", Max: \" << max << endl;\n    \n    // Часть 2: работа со строками\n    char name1[] = \"Ivan\";\n    char name2[] = \"Anna\";\n    char result[50];\n    \n    strcpy(result, name1);\n    strcat(result, \" - \");\n    strcat(result, name2);\n    \n    cout << \"Combined names: \" << result << endl;\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Важные замечания по работе с массивами и строками в C++:\n1. Всегда проверяйте границы массива, чтобы избежать выхода за пределы\n2. Для строк в стиле C не забывайте о нуль-терминаторе\n3. Класс string предпочтительнее массивов char, так как безопаснее и удобнее\n4. Используйте алгоритмы из STL (например, std::sort) для работы с массивами\n5. Для динамических массивов лучше использовать vector из стандартной библиотеки"
+            }
+          ]
         },
         {
           "id": "cpp-5",
           "title": "Динамическая память",
           "difficulty": "hard",
           "description": "Операторы new и delete. Динамические массивы. Утечки памяти и как их избегать",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Динамическое выделение памяти в C++ позволяет создавать объекты и массивы, время жизни которых контролируется программистом. Для работы с динамической памятью используются операторы new и delete."
+            },
+            {
+              "type": "image",
+              "content": "https://avatars.mds.yandex.net/i?id=65cd6a4e662923d0fed0d7801309dbb55ff047e1-8497446-images-thumbs&n=13"
+            },
+            {
+              "type": "code",
+              "content": "// Базовое использование new и delete\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Выделение памяти для одного целого числа\n    int* ptr = new int;\n    *ptr = 42;\n    \n    cout << \"Value: \" << *ptr << endl;\n    \n    // Освобождение памяти\n    delete ptr;\n    ptr = nullptr;  // Хорошая практика - обнулять указатель\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Динамические массивы позволяют создавать массивы, размер которых определяется во время выполнения программы. Для их создания и удаления используются new[] и delete[]."
+            },
+            {
+              "type": "code",
+              "content": "// Работа с динамическими массивами\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int size;\n    cout << \"Enter array size: \";\n    cin >> size;\n    \n    // Выделение памяти для массива\n    int* arr = new int[size];\n    \n    // Заполнение массива\n    for (int i = 0; i < size; i++) {\n        arr[i] = i * 10;\n    }\n    \n    // Вывод массива\n    cout << \"Array: \";\n    for (int i = 0; i < size; i++) {\n        cout << arr[i] << \" \";\n    }\n    cout << endl;\n    \n    // Освобождение памяти\n    delete[] arr;\n    arr = nullptr;\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Утечки памяти возникают, когда выделенная память не освобождается. Это может привести к исчерпанию памяти программы. Основные причины:\n1. Забыли вызвать delete/delete[]\n2. Потеряли указатель на выделенную память\n3. Исключение между new и delete"
+            },
+            {
+              "type": "code",
+              "content": "// Пример утечки памяти\nvoid memoryLeak() {\n    int* ptr = new int[100];\n    // Забыли delete[] ptr;\n    // Память утекла\n}\n\n// Другой пример\nvoid anotherLeak() {\n    int* ptr = new int;\n    ptr = new int;  // Первый блок памяти потерян\n    delete ptr;     // Освобожден только второй блок\n}"
+            },
+            {
+              "type": "text",
+              "content": "Способы избежать утечек памяти:\n1. Всегда освобождать память через delete/delete[]\n2. Использовать умные указатели (unique_ptr, shared_ptr)\n3. Применять принцип RAII (Resource Acquisition Is Initialization)\n4. Использовать контейнеры STL (vector, string и др.)"
+            },
+            {
+              "type": "code",
+              "content": "// Использование умных указателей\n#include <iostream>\n#include <memory>  // Для unique_ptr\nusing namespace std;\n\nint main() {\n    // unique_ptr автоматически освобождает память\n    unique_ptr<int> ptr1(new int(42));\n    \n    // Лучше использовать make_unique (C++14)\n    auto ptr2 = make_unique<int>(100);\n    \n    // Для массивов\n    auto arr = make_unique<int[]>(10);\n    \n    cout << *ptr1 << endl;\n    cout << *ptr2 << endl;\n    \n    // Память освободится автоматически при выходе из области видимости\n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Правила работы с динамической памятью:\n1. Каждому new должен соответствовать delete\n2. Каждому new[] должен соответствовать delete[]\n3. Не смешивать формы (например, delete вместо delete[])\n4. После delete устанавливать указатель в nullptr\n5. Проверять указатель на nullptr перед использованием"
+            },
+            {
+              "type": "text",
+              "content": "В современном C++ рекомендуется:\n1. Использовать умные указатели вместо raw-указателей\n2. Отдавать предпочтение контейнерам STL (vector, array)\n3. Избегать явного new/delete\n4. Использовать make_unique и make_shared (C++14)\n5. Применять RAII для всех ресурсов, не только для памяти"
+            },
+            {
+              "type": "task",
+              "content": "Напишите программу на C++, которая:\n1. Создает динамический массив строк (string)\n2. Заполняет его введенными пользователем строками\n3. Выводит все строки в обратном порядке\n4. Освобождает память\n5. Использует защиту от утечек памяти",
+              "solution": "#include <iostream>\n#include <string>\n#include <memory>\nusing namespace std;\n\nint main() {\n    int size;\n    cout << \"Enter number of strings: \";\n    cin >> size;\n    cin.ignore();  // Очистка буфера\n    \n    // Создание динамического массива unique_ptr<string>\n    auto strings = make_unique<unique_ptr<string>[]>(size);\n    \n    // Ввод строк\n    for (int i = 0; i < size; i++) {\n        cout << \"Enter string \" << i+1 << \": \";\n        string temp;\n        getline(cin, temp);\n        strings[i] = make_unique<string>(temp);\n    }\n    \n    // Вывод в обратном порядке\n    cout << \"\\nReversed strings:\\n\";\n    for (int i = size-1; i >= 0; i--) {\n        cout << *strings[i] << endl;\n    }\n    \n    // Память освободится автоматически благодаря unique_ptr\n    return 0;\n}"
+            }
+          ]
         },
         {
           "id": "cpp-6",
           "title": "Углублённое ООП",
           "difficulty": "hard",
           "description": "Инкапсуляция, наследование, полиморфизм. Виртуальные функции, абстрактные классы",
-          "blocks": []
+          "blocks": [
+            {
+              "type": "text",
+              "content": "Объектно-ориентированное программирование в C++ основано на трёх ключевых принципах: инкапсуляции, наследовании и полиморфизме. Эти концепции позволяют создавать гибкие и поддерживаемые программные системы."
+            },
+            {
+              "type": "image",
+              "content": "https://avatars.mds.yandex.net/i?id=9638f65b642b2729e377fc8cbe65245009968a9fc98e65f2-12590692-images-thumbs&n=13"
+            },
+            {
+              "type": "text",
+              "content": "Инкапсуляция — механизм сокрытия реализации и защиты данных. В C++ реализуется через:\n1. Модификаторы доступа (public, private, protected)\n2. Геттеры и сеттеры\n3. Дружественные функции и классы"
+            },
+            {
+              "type": "code",
+              "content": "// Пример инкапсуляции\nclass BankAccount {\nprivate:\n    double balance;\n    string owner;\n\npublic:\n    BankAccount(string name) : owner(name), balance(0) {}\n    \n    // Геттеры\n    double getBalance() const { return balance; }\n    string getOwner() const { return owner; }\n    \n    // Сеттер с проверкой\n    void deposit(double amount) {\n        if (amount > 0) balance += amount;\n    }\n    \n    void withdraw(double amount) {\n        if (amount > 0 && amount <= balance) {\n            balance -= amount;\n        }\n    }\n};"
+            },
+            {
+              "type": "text",
+              "content": "Наследование позволяет создавать новые классы на основе существующих. В C++ поддерживаются различные типы наследования:\n1. public — публичные члены остаются публичными\n2. protected — публичные становятся protected\n3. private — все члены становятся private"
+            },
+            {
+              "type": "code",
+              "content": "// Пример наследования\nclass Shape {\nprotected:\n    int width, height;\npublic:\n    Shape(int w, int h) : width(w), height(h) {}\n    virtual double area() = 0;  // Чисто виртуальная функция\n};\n\nclass Rectangle : public Shape {\npublic:\n    Rectangle(int w, int h) : Shape(w, h) {}\n    double area() override { return width * height; }\n};\n\nclass Triangle : public Shape {\npublic:\n    Triangle(int w, int h) : Shape(w, h) {}\n    double area() override { return width * height / 2.0; }\n};"
+            },
+            {
+              "type": "text",
+              "content": "Полиморфизм позволяет объектам разных классов обрабатываться через общий интерфейс. В C++ реализуется через:\n1. Виртуальные функции (virtual)\n2. Указатели и ссылки на базовый класс\n3. Переопределение методов (override)"
+            },
+            {
+              "type": "code",
+              "content": "// Пример полиморфизма\nvoid printArea(Shape& shape) {\n    cout << \"Area: \" << shape.area() << endl;\n}\n\nint main() {\n    Rectangle rect(4, 5);\n    Triangle tri(4, 5);\n    \n    printArea(rect);  // Вызовется Rectangle::area()\n    printArea(tri);   // Вызовется Triangle::area()\n    \n    return 0;\n}"
+            },
+            {
+              "type": "text",
+              "content": "Виртуальные функции — ключевой механизм для реализации полиморфизма. Особенности:\n1. Объявляются с ключевым словом virtual\n2. Могут быть переопределены в производных классах\n3. Вызов определяется во время выполнения (динамическое связывание)\n4. Чисто виртуальные функции (= 0) делают класс абстрактным"
+            },
+            {
+              "type": "code",
+              "content": "// Абстрактный класс с чисто виртуальной функцией\nclass Animal {\npublic:\n    virtual void makeSound() = 0;  // Чисто виртуальная функция\n    virtual ~Animal() {}           // Виртуальный деструктор\n};\n\nclass Dog : public Animal {\npublic:\n    void makeSound() override {\n        cout << \"Woof!\" << endl;\n    }\n};\n\nclass Cat : public Animal {\npublic:\n    void makeSound() override {\n        cout << \"Meow!\" << endl;\n    }\n};"
+            },
+            {
+              "type": "text",
+              "content": "Правила работы с виртуальными функциями:\n1. Делайте деструктор виртуальным в базовом классе\n2. Используйте override для явного указания переопределения\n3. Избегайте виртуальных функций в конструкторах и деструкторах\n4. Для запрета переопределения используйте final"
+            },
+            {
+              "type": "text",
+              "content": "Современные практики ООП в C++:\n1. Используйте override для явного указания переопределения\n2. Применяйте final для запрета дальнейшего переопределения\n3. Предпочитайте композицию наследованию, где это уместно\n4. Используйте умные указатели для полиморфных объектов\n5. Соблюдайте принцип подстановки Лисков (LSP)"
+            },
+            {
+              "type": "task",
+              "content": "Создайте иерархию классов для представления сотрудников компании:\n1. Базовый абстрактный класс Employee с чисто виртуальной функцией calculateSalary()\n2. Класс FullTimeEmployee с фиксированной зарплатой\n3. Класс PartTimeEmployee с почасовой оплатой\n4. Класс Manager с бонусом к зарплате\n5. Продемонстрируйте полиморфизм через массив указателей на Employee",
+              "solution": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Employee {\nprotected:\n    string name;\npublic:\n    Employee(string n) : name(n) {}\n    virtual ~Employee() {}\n    virtual double calculateSalary() const = 0;\n    string getName() const { return name; }\n};\n\nclass FullTimeEmployee : public Employee {\n    double monthlySalary;\npublic:\n    FullTimeEmployee(string n, double s) : Employee(n), monthlySalary(s) {}\n    double calculateSalary() const override {\n        return monthlySalary;\n    }\n};\n\nclass PartTimeEmployee : public Employee {\n    double hourlyRate;\n    int hoursWorked;\npublic:\n    PartTimeEmployee(string n, double r, int h) : Employee(n), hourlyRate(r), hoursWorked(h) {}\n    double calculateSalary() const override {\n        return hourlyRate * hoursWorked;\n    }\n};\n\nclass Manager : public FullTimeEmployee {\n    double bonus;\npublic:\n    Manager(string n, double s, double b) : FullTimeEmployee(n, s), bonus(b) {}\n    double calculateSalary() const override {\n        return monthlySalary + bonus;\n    }\n};\n\nint main() {\n    vector<Employee*> employees {\n        new FullTimeEmployee(\"Alice\", 5000),\n        new PartTimeEmployee(\"Bob\", 20, 80),\n        new Manager(\"Carol\", 7000, 2000)\n    };\n    \n    for (auto emp : employees) {\n        cout << emp->getName() << \": $\" << emp->calculateSalary() << endl;\n    }\n    \n    // Освобождение памяти\n    for (auto emp : employees) {\n        delete emp;\n    }\n    \n    return 0;\n}"
+            }
+          ]
         }
       ]
     }

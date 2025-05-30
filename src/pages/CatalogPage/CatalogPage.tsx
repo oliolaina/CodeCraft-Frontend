@@ -67,12 +67,20 @@ const CatalogPage: React.FC = () => {
         <Tabs
           items={[
             {
-              icon: <img src={python_logo} alt='python' />,
+              icon: (
+                <img
+                  src={python_logo}
+                  alt='python'
+                  className={styles.catalog_icon}
+                />
+              ),
               label: 'Python',
               value: 'python'
             },
             {
-              icon: <img src={cpp_logo} alt='c++' />,
+              icon: (
+                <img src={cpp_logo} alt='c++' className={styles.catalog_icon} />
+              ),
               label: 'C++',
               value: 'cpp'
             }
