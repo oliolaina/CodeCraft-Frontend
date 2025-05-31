@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
       <Cover
-        onStart={() => alert('Начать изучение!')}
+        onStart={() => navigate('/catalog')}
         onCppClick={() => setTab('cpp')}
         onPythonClick={() => setTab('python')}
         backgroundUrl={cover}

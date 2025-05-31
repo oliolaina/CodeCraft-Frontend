@@ -54,6 +54,10 @@ export const loginUser = (
   const users = getUsersFromStorage();
   const user = users.find((u) => u.login === login);
 
+  if (login == '')
+    return { success: false, error: 'Логин не может быть пустым' };
+  if (password.length < 5)
+    return { success: false, error: 'Пароль слишком короткий' };
   if (!user) return { success: false, error: 'Пользователь не найден' };
   if (user.password !== password)
     return { success: false, error: 'Неверный пароль' };

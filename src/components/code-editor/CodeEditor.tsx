@@ -27,7 +27,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
   }, [language, value]);
 
   return (
-    <div className={styles.editorWrap}>
+    <div className={styles.editorWrap} data-testid='code-editor'>
       <Editor
         value={value}
         onValueChange={onChange}
