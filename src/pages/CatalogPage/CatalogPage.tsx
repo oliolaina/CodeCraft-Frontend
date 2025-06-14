@@ -8,6 +8,7 @@ import styles from '../page.module.css';
 import python_logo from '../../assets/images/python_logo.png';
 import cpp_logo from '../../assets/images/cpp_logo.png';
 import courseData from '../../data/courses.json';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const CatalogPage: React.FC = () => {
   const [tab, setTab] = useState('python');
@@ -88,48 +89,55 @@ const CatalogPage: React.FC = () => {
           value={tab}
           onChange={setTab}
         >
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 24,
-              width: '85%',
-              margin: '20px auto'
-            }}
-          >
-            <Text
+          <AnimatePresence mode='wait'>
+            <motion.div
+              key={tab}
+              initial={{ x: 80, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -80, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
               style={{
-                fontFamily: 'Comfortaa',
-                color: '#BBFAE9',
-                margin: '20px 0 20px 0',
-                lineHeight: '1.5'
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 24,
+                width: '85%',
+                margin: '20px auto'
               }}
             >
-              {getDescription()}
-            </Text>
-            <Heading
-              size={1}
-              color='#00F0B1'
-              style={{
-                fontFamily: 'Comfortaa',
-                textShadow: '0 0 20px #06A77D',
-                color: '#00F0B1',
-                margin: '20px 0 20px -3%'
-              }}
-            >
-              Программа обучения:
-            </Heading>
-            {currentCourse?.topics.map((topic) => (
-              <LessonCard
-                key={topic.id}
-                title={topic.title}
-                level={mapDifficultyToLevel(topic.difficulty)}
-                language={tab}
-                description={topic.description}
-                to={`/lesson/${topic.id}`}
-              />
-            ))}
-          </div>
+              <Text
+                style={{
+                  fontFamily: 'Comfortaa',
+                  color: '#BBFAE9',
+                  margin: '20px 0 20px 0',
+                  lineHeight: '1.5'
+                }}
+              >
+                {getDescription()}
+              </Text>
+              <Heading
+                size={1}
+                color='#00F0B1'
+                style={{
+                  fontFamily: 'Comfortaa',
+                  textShadow: '0 0 20px #06A77D',
+                  color: '#00F0B1',
+                  margin: '20px 0 20px -3%'
+                }}
+              >
+                Программа обучения:
+              </Heading>
+              {currentCourse?.topics.map((topic) => (
+                <LessonCard
+                  key={topic.id}
+                  title={topic.title}
+                  level={mapDifficultyToLevel(topic.difficulty)}
+                  language={tab}
+                  description={topic.description}
+                  to={`/lesson/${topic.id}`}
+                />
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </Tabs>
       </main>
       <Footer />

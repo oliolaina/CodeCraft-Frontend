@@ -17,6 +17,7 @@ import cover from '../../assets/images/cover_main.png';
 import pic1 from '../../assets/images/mainPagePics/pic1.svg';
 import pic2 from '../../assets/images/mainPagePics/pic2.svg';
 import pic3 from '../../assets/images/mainPagePics/pic3.svg';
+import { motion } from 'framer-motion';
 
 const HomePage: React.FC = () => {
   const [tab, setTab] = useState('python');
@@ -63,7 +64,7 @@ const HomePage: React.FC = () => {
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
       <Cover
-        onStart={() => navigate('/catalog')}
+        onStart={() => alert('Начать изучение!')}
         onCppClick={() => setTab('cpp')}
         onPythonClick={() => setTab('python')}
         backgroundUrl={cover}
@@ -92,7 +93,14 @@ const HomePage: React.FC = () => {
               title='Практика с первого дня'
               text='Теория и задачи в одном месте. Теория знакомит с новой темой, а практические задания закрепляют знания.'
             />
-            <img src={pic1} alt='pic1' />
+            <motion.img
+              src={pic1}
+              alt='pic1'
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true, amount: 0.3 }}
+            />
           </div>
           <div
             style={{
@@ -102,7 +110,14 @@ const HomePage: React.FC = () => {
               margin: '50px 0'
             }}
           >
-            <img src={pic2} alt='pic2' />
+            <motion.img
+              src={pic2}
+              alt='pic2'
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true, amount: 0.3 }}
+            />
             <FeatureCard
               title='Для всех уровней'
               text='Найдите задачи для любого уровня: от новичка до эксперта. Развивайтесь в своем темпе.'
@@ -120,7 +135,14 @@ const HomePage: React.FC = () => {
               title='Прогресс всегда под рукой'
               text='Сохранение результатов и отслеживание вашего прогресса в обучении.'
             />
-            <img src={pic3} alt='pic3' />
+            <motion.img
+              src={pic3}
+              alt='pic3'
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true, amount: 0.3 }}
+            />
           </div>
         </div>
 

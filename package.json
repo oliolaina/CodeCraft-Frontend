@@ -10,6 +10,7 @@
     "@types/uuid": "^9.0.1",
     "@zlden/react-developer-burger-ui-components": "^1.15.0",
     "clsx": "^2.0.0",
+    "framer-motion": "^12.16.0",
     "openai": "^4.103.0",
     "prismjs": "^1.30.0",
     "react": "^18.2.0",

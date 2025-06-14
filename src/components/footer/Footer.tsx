@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({
   logoText = 'CodeCraft',
-  copyright = 'Баймуратова Алина, 2025'
+  copyright = 'oliolaina, 2025'
 }) => (
   <footer className={styles.footer}>
     <div className={styles.logo}>{logoText}</div>

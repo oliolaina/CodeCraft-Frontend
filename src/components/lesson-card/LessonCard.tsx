@@ -6,6 +6,7 @@ import cpp_hard from '../../assets/images/topic_cards/cpp_hard.svg';
 import python_easy from '../../assets/images/topic_cards/python_easy.svg';
 import python_medium from '../../assets/images/topic_cards/python_medium.svg';
 import python_hard from '../../assets/images/topic_cards/python_hard.svg';
+import { motion } from 'framer-motion';
 
 interface LessonCardProps {
   title: string;
@@ -55,21 +56,29 @@ export const LessonCard: React.FC<LessonCardProps> = ({
   const cardClasses = `${styles.card} ${getLevelClass()}`;
 
   return (
-    <a
-      className={cardClasses}
-      href={to}
-      style={background ? { background } : {}}
+    <motion.div
+      style={{ width: '100%' }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.3 }}
     >
-      <div className={styles.icon}>
-        <img src={getImage()} className={styles.icon} alt='icon' />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.title}>{title}</div>
-        <div className={`${styles.level} ${styles[`level_${level}`]}`}>
-          {level}
+      <a
+        className={cardClasses}
+        href={to}
+        style={background ? { background } : {}}
+      >
+        <div className={styles.icon}>
+          <img src={getImage()} className={styles.icon} alt='icon' />
         </div>
-        <div className={styles.description}>{description}</div>
-      </div>
-    </a>
+        <div className={styles.content}>
+          <div className={styles.title}>{title}</div>
+          <div className={`${styles.level} ${styles[`level_${level}`]}`}>
+            {level}
+          </div>
+          <div className={styles.description}>{description}</div>
+        </div>
+      </a>
+    </motion.div>
   );
 };
