@@ -28,8 +28,8 @@ const BlogPage: React.FC = () => {
       <Header
         links={[
           { label: 'О проекте', to: '/' },
-          { label: 'Блог', to: '/blog' },
-          { label: 'Каталог', to: '/catalog' }
+          { label: 'Блог', to: '/catalog' },
+          { label: 'Каталог', to: '/blog' }
         ]}
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />

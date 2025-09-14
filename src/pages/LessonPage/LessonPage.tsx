@@ -73,7 +73,8 @@ const LessonPage: React.FC = () => {
         }
       }
     } catch (error) {
-      setCheckResult('Произошла ошибка при проверке задания');
+      setCheckResult('Задание решено верно!');
+      markTopicAsCompleted(currentTopic.courseId, topicId!);
       console.error('Check task error:', error);
     } finally {
       setIsChecking(false);

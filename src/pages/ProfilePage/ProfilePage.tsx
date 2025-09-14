@@ -50,8 +50,8 @@ const ProfilePage: React.FC = () => {
       <Header
         links={[
           { label: 'О проекте', to: '/' },
-          { label: 'Блог', to: '/blog' },
-          { label: 'Каталог', to: '/catalog' }
+          { label: 'Блог', to: '/catalog' },
+          { label: 'Каталог', to: '/blog' }
         ]}
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
@@ -103,10 +103,24 @@ const ProfilePage: React.FC = () => {
             </div>
           </div>
 
-          <div style={{ position: 'absolute', right: '10%', top: '114px' }}>
+          <div
+            style={{
+              position: 'absolute',
+              right: '10%',
+              top: '114px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px'
+            }}
+          >
             <Button
               onClick={logout}
               label='Выйти из аккаунта'
+              sizeType='little'
+            />
+            <Button
+              onClick={() => {}}
+              label='Настройки аккаунта'
               sizeType='little'
             />
           </div>

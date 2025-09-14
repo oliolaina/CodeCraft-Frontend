@@ -58,13 +58,13 @@ const HomePage: React.FC = () => {
       <Header
         links={[
           { label: 'О проекте', to: '#first' },
-          { label: 'Блог', to: '/blog' },
-          { label: 'Каталог', to: '/catalog' }
+          { label: 'Блог', to: '/catalog' },
+          { label: 'Каталог', to: '/blog' }
         ]}
         profileLink={{ label: 'Профиль', to: '/profile' }}
       />
       <Cover
-        onStart={() => alert('Начать изучение!')}
+        onStart={() => console.log('Начать изучение!')}
         onCppClick={() => setTab('cpp')}
         onPythonClick={() => setTab('python')}
         backgroundUrl={cover}
