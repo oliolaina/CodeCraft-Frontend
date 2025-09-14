@@ -38,8 +38,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|jpeg|png|svg)$/,
-        type: 'asset/resource'
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/media/[name].[hash][ext]'
+        }
       },
       {
         test: /\.(woff|woff2)$/,
@@ -84,7 +87,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
-    publicPath: '/CodeCraft-Frontend/'
+    publicPath: '/CodeCraft-Frontend/',
+    assetModuleFilename: 'static/media/[name].[hash][ext]'
   },
   devServer: {
     static: path.join(__dirname, './dist'),
