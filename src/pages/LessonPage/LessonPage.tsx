@@ -9,11 +9,13 @@ import { Heading, Text } from '../../components/typography';
 import styles from '../page.module.css';
 import coursesData from '../../data/courses.json';
 import { checkTask } from '../../services/APIService';
+import { getRandomGif } from '../../services/GIFService'; // Импортируем сервис gif
 
 const LessonPage: React.FC = () => {
   const [code, setCode] = React.useState('# Пишите здесь\n');
   const [isChecking, setIsChecking] = React.useState(false);
   const [checkResult, setCheckResult] = React.useState<string | null>(null);
+  const [gifUrl, setGifUrl] = React.useState<string | null>(null); // Новое состояние для хранения URL гифки
 
   const { topicId } = useParams<{ topicId: string }>();
   const { currentUser } = useAuth();
@@ -61,24 +63,41 @@ const LessonPage: React.FC = () => {
 
     setIsChecking(true);
     setCheckResult(null);
+    setGifUrl(null); // Сбрасываем предыдущую гифку
 
     try {
       const result = await checkTask(task, code);
       setCheckResult(result);
 
+      // Определяем тег для гифки в зависимости от результата
+      let gifTag: string;
       if (result?.includes('Задача решена верно!')) {
+        gifTag = 'congratulations programming';
         if (currentUser && currentTopic) {
           markTopicAsCompleted(currentTopic.courseId, topicId!);
           console.log('UPD', currentUser);
         }
+      } else {
+        gifTag = 'try again coding';
       }
+
+      // Получаем гифку и обновляем состояние
+      const gifUrl = await getRandomGif(gifTag);
+      setGifUrl(gifUrl);
     } catch (error) {
-      setCheckResult('Задание решено верно!');
-      markTopicAsCompleted(currentTopic.courseId, topicId!);
+      setCheckResult('Произошла ошибка');
+      //markTopicAsCompleted(currentTopic.courseId, topicId!);
+
+      // Получаем гифку для успешного случая даже при ошибке
+      const gifUrl = await getRandomGif('error');
+      setGifUrl(gifUrl);
+      //console.log('gifurl:', gifUrl);
+
       console.error('Check task error:', error);
     } finally {
       setIsChecking(false);
     }
+    //console.log('gifurl:', gifUrl);
   };
 
   return (
@@ -108,7 +127,7 @@ const LessonPage: React.FC = () => {
               color='#00F0B1'
               style={{ lineHeight: '40px', border: '#00F0B1 2px solid' }}
             >
-              ✓ Вы уже прошли этот урок
+              ✓ Вы уже прошли этот урок!
             </Text>
           )}
         </div>
@@ -176,6 +195,22 @@ const LessonPage: React.FC = () => {
                         }}
                       >
                         <Text>{checkResult}</Text>
+
+                        {gifUrl && (
+                          <div
+                            style={{ marginTop: '16px', textAlign: 'center' }}
+                          >
+                            <img
+                              src={gifUrl}
+                              alt='Reaction gif'
+                              style={{
+                                maxWidth: '300px',
+                                borderRadius: '8px',
+                                margin: '0 auto'
+                              }}
+                            />
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>

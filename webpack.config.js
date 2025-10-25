@@ -38,11 +38,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'static/media/[name].[hash][ext]'
-        }
+        test: /\.(jpg|jpeg|png|svg)$/,
+        type: 'asset/resource'
       },
       {
         test: /\.(woff|woff2)$/,
@@ -55,7 +52,9 @@ module.exports = {
       extensions: ['.js', '.jsx', '.ts', '.tsx']
     }),
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
+      inject: true,
+      publicPath: '/'
     }),
     new Dotenv()
   ],
@@ -86,9 +85,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
-    publicPath: '/CodeCraft-Frontend/',
-    assetModuleFilename: 'static/media/[name].[hash][ext]'
+    publicPath: '/'
   },
   devServer: {
     static: path.join(__dirname, './dist'),
